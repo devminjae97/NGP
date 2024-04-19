@@ -61,10 +61,10 @@ public class CameraController : MonoBehaviour
         Vector2 moveInput = Vector2.zero;
 
         moveInput.x = Keyboard.current.dKey.isPressed ? 1f : (Keyboard.current.aKey.isPressed ? -1f : 0f);
-        moveInput.x += Gamepad.current?.leftStick.x.ReadValue() ?? 0f;
+        moveInput.x += Gamepad.current?.dpad.x.ReadValue() ?? 0f;
 
         moveInput.y = Keyboard.current.wKey.isPressed ? 1f : (Keyboard.current.sKey.isPressed ? -1f : 0f);
-        moveInput.y += Gamepad.current?.leftStick.y.ReadValue() ?? 0f;
+        moveInput.x += Gamepad.current?.dpad.y.ReadValue() ?? 0f;
 
         return moveInput.normalized;
     }
