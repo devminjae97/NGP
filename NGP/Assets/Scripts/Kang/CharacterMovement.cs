@@ -3,19 +3,19 @@ using UnityEngine.InputSystem;
 
 public class CharacterMovement : MonoBehaviour
 {
-    [SerializeField] protected float _moveSpeed = 20f;
-    [SerializeField] protected float _jumpForce = 10f;
-    [SerializeField] protected float _additionalForce = 200f;
-    [SerializeField] protected Vector2 _boxSize;
-    [SerializeField] protected float _castDistance;
-    [SerializeField] protected LayerMask _groundLayer;
+    [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float jumpForce = 10f;
+    [SerializeField] Vector2 boxSize;
+    [SerializeField] float castDistance;
+    [SerializeField] LayerMask groundLayer;
 
-    private Rigidbody2D _rigidbody;
+    private float currentMoveSpeed = 0f;
+    private Rigidbody2D rb;
     private Vector2 moveInput;
     
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
@@ -23,38 +23,45 @@ public class CharacterMovement : MonoBehaviour
         Move();
         IsOnGround();
     }
-
     private bool IsOnGround()
     {
-        return Physics2D.BoxCast(transform.position, _boxSize, 0, -transform.up, _castDistance, _groundLayer); 
-    }
-    public void OnDrawGizmos()
-    {
-        // 박스 캐스트의 시작점과 크기 그리기
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube((Vector2)transform.position - new Vector2(0, _castDistance), _boxSize * 2);
+        if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer)) 
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     public bool IsPlayerStopped()
     {
-        return moveInput == Vector2.zero;
+        return currentMoveSpeed == 0;
     }
     void Move()
     {
-        Vector2 movement = moveInput * _moveSpeed * Time.fixedDeltaTime;
-        if (_rigidbody.velocity.x <5.0f && -_rigidbody.velocity.x <5.0f)
-            _rigidbody.AddForce(movement * _additionalForce, ForceMode2D.Force);
-    }
+        Vector2 movement = moveInput * moveSpeed *Time.deltaTime;
+        transform.Translate(movement);
 
+    }
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+        if (moveInput != Vector2.zero)
+        {
+            currentMoveSpeed = moveSpeed;
+        }
+        else
+        {
+            currentMoveSpeed = 0;
+        }
     }
 
     public void OnJump(InputValue value)
     {
         if (IsOnGround() && value.isPressed)
         {
-            _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
 }
