@@ -22,7 +22,7 @@ public class EditorFlag : EditorToolBase
         InitComponent( 1 );
     }
 
-    public override void Edit( Vector2 mousePosition )
+    public override void Edit( Vector2 mousePosition, EditJob editJob )
     {
         bool isEven = (int)(_size / _tileSize) % 2 == 0;
         int num = Mathf.RoundToInt( (_size / _tileSize - (isEven ? 0 : 1)) / 2 );

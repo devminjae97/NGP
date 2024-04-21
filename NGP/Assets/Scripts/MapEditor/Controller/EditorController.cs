@@ -39,6 +39,8 @@ public class EditorController : MonoBehaviour
 
     private EditorToolBase _tool;
 
+    private EditJob _editJob;
+
     private void Awake()
     {
         _buttonGroupByTileType = new Dictionary<ETileType, GameObject>()
@@ -86,9 +88,41 @@ public class EditorController : MonoBehaviour
         // Dragging Camera
         DragView();
 
-        if (Input.GetMouseButton( 0 ))
+        Edit();
+
+        UndoRedo();
+    }
+
+    private void Edit()
+    {
+        if (Input.GetMouseButtonDown( 0 ))
         {
-            _tool.Edit( _selectCursor.transform.position );
+            _editJob = gameObject.AddComponent<EditJob>();
+        }
+        else if (Input.GetMouseButton( 0 ))
+        {
+            _tool.Edit( _selectCursor.transform.position, _editJob );
+        }
+        else if (Input.GetMouseButtonUp( 0 ))
+        {
+            if (!_editJob.IsEmptyJob())
+            {
+                EditJobManager.GetInstance().PushJob( _editJob );
+            }
+            Destroy( _editJob );
+        }
+    }
+
+    private void UndoRedo()
+    {
+        if (Input.GetKeyDown( KeyCode.Z ) && Input.GetKey( KeyCode.LeftControl ))
+        {
+            EditJobManager.GetInstance().Undo();
+        }
+
+        if (Input.GetKeyDown( KeyCode.Y ) && Input.GetKey( KeyCode.LeftControl ))
+        {
+            EditJobManager.GetInstance().Redo();
         }
     }
 

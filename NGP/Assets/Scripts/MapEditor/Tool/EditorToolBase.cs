@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
@@ -58,15 +59,18 @@ public abstract class EditorToolBase : MonoBehaviour
         _tilemap = sceneToSet.tilemap;
     }
 
-    public void DrawObject( GameObject objectToDraw, Vector3Int pos )
+    public void DrawObject( GameObject objectToDraw, Vector3Int pos, EditJob editJob )
     {
         GameObject obj = Instantiate( objectToDraw, _tilemap.CellToWorld( pos ) + new Vector3( _tileSize / 2, _tileSize / 2 ), Quaternion.identity );
         obj.transform.parent = EditorManager.GetInstance().CurrentEditorScene.tilemap.transform;
+
+        editJob.JobType = EJobType.eSetObject;
+        editJob.TargetObjects.Add( (Vector2Int)pos, obj );
     }
 
     public virtual void SetCursorColor( Vector2 mousePosition, SpriteRenderer selectCursor ) { }
     public virtual void SetSize( float val ) { }
-    public virtual void Edit( Vector2 mousePosition ) { }
+    public virtual void Edit( Vector2 mousePosition, EditJob editJob ) { }
 
     public float Size
     {

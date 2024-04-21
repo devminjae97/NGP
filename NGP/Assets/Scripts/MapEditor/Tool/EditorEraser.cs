@@ -19,21 +19,42 @@ public class EditorEraser : EditorToolBase
         _selectCursor.transform.localScale = new Vector3( _size, _size, 0 );
     }
 
-    public override void Edit( Vector2 mousePosition )
+    public override void Edit( Vector2 mousePosition, EditJob editJob )
     {
         bool isEven = (int)(_size / _tileSize) % 2 == 0;
         int num = Mathf.RoundToInt( (_size / _tileSize - (isEven ? 0 : 1)) / 2 );
         Vector3Int pos = _tilemap.WorldToCell( mousePosition );
+        Vector2Int curPos;
+        editJob.JobType = EJobType.eErase;
 
         for (int i = pos.x - num; i <= pos.x + num + (isEven ? -1 : 0); i++)
         {
             for (int j = pos.y - num; j <= pos.y + num + (isEven ? -1 : 0); j++)
             {
-                _tilemap.SetTile( new Vector3Int( i, j, 0 ), null );
+
+                curPos = new Vector2Int( i, j );
+                TileBase curTile = _tilemap.GetTile( (Vector3Int)curPos );
+                if (curTile != null )
+                {
+                    editJob.TileByPos.Add( curPos, (curTile, null) );
+                    _tilemap.SetTile( new Vector3Int( i, j, 0 ), null );
+                }
 
                 (bool, RaycastHit2D) result = IsBlockedByObject( i, j );
-                if (result.Item1)
+                if (result.Item1 && result.Item2.transform.gameObject.activeSelf)
                 {
+                    //if (editJob.EraseObjects.ContainsKey( curPos )) continue;
+                    GameObject tmp = Instantiate( result.Item2.transform.gameObject, new Vector3( 100, 100, 0 ), Quaternion.identity );
+
+                    if (editJob.EraseObjects.ContainsKey( curPos ))
+                    {
+                        editJob.EraseObjects[curPos] = tmp;
+                    }
+                    else
+                    {
+                        editJob.EraseObjects.Add( curPos, tmp );
+                    }
+                    
                     Destroy( result.Item2.transform.gameObject );
                 }
             }

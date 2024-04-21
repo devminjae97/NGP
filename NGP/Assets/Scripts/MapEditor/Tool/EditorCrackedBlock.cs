@@ -38,7 +38,7 @@ public class EditorCrackedBlock : EditorToolBase
         selectCursor.color = Color.white;
     }
 
-    public override void Edit( Vector2 mousePosition )
+    public override void Edit( Vector2 mousePosition, EditJob editJob )
     {
         bool isEven = (int)(_size / _tileSize) % 2 == 0;
         int num = Mathf.RoundToInt( (_size / _tileSize - (isEven ? 0 : 1)) / 2 );
@@ -61,7 +61,7 @@ public class EditorCrackedBlock : EditorToolBase
                 }
             }
         }
-        DrawObject( _crackedBlockObject, pos );
+        DrawObject( _crackedBlockObject, pos, editJob );
     }
 
     public void OnClickRespawnTimeButton()
