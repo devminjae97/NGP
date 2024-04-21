@@ -31,7 +31,6 @@ public class EditorEraser : EditorToolBase
         {
             for (int j = pos.y - num; j <= pos.y + num + (isEven ? -1 : 0); j++)
             {
-
                 curPos = new Vector2Int( i, j );
                 TileBase curTile = _tilemap.GetTile( (Vector3Int)curPos );
                 if (curTile != null )
@@ -44,18 +43,10 @@ public class EditorEraser : EditorToolBase
                 if (result.Item1 && result.Item2.transform.gameObject.activeSelf)
                 {
                     //if (editJob.EraseObjects.ContainsKey( curPos )) continue;
-                    GameObject tmp = Instantiate( result.Item2.transform.gameObject, new Vector3( 100, 100, 0 ), Quaternion.identity );
-
-                    if (editJob.EraseObjects.ContainsKey( curPos ))
-                    {
-                        editJob.EraseObjects[curPos] = tmp;
-                    }
-                    else
-                    {
-                        editJob.EraseObjects.Add( curPos, tmp );
-                    }
-                    
-                    Destroy( result.Item2.transform.gameObject );
+                    //editJob.EraseObjects.Add( curPos, result.Item2.transform.gameObject );
+                    editJob.EraseObjectsTest.Add( result.Item2.transform.gameObject, curPos );
+                    result.Item2.transform.position = new Vector3( 100, 100 );
+                    result.Item2.transform.gameObject.SetActive( false );
                 }
             }
         }

@@ -11,6 +11,7 @@ public class EditJobManager : MonoBehaviour
     private Deque<EditJob> _redos;
     private Tilemap _tilemap;
     private float _tileSize;
+    private Dictionary<GameObject, Vector2Int> _objectPos;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class EditJobManager : MonoBehaviour
     {
         _tilemap = EditorManager.GetInstance().CurrentEditorScene.tilemap;
         _tileSize = _tilemap.cellSize.x;
+        _objectPos = new Dictionary<GameObject, Vector2Int>();
     }
 
     public EditJob Undo()
@@ -82,16 +84,24 @@ public class EditJobManager : MonoBehaviour
                 }
                 break;
             case EJobType.eSetObject:
-                RemoveOnIterate( job.TargetObjects );
+                //RemoveOnIterate( job.TargetObjects );
+                foreach (KeyValuePair<Vector2Int, GameObject> pair in job.TargetObjects)
+                {
+                    pair.Value.SetActive( false );
+                    pair.Value.transform.position = new Vector3( 100, 100 );
+                }
                 break;
             case EJobType.eErase:
+                Debug.Log( "AA1" );
                 foreach (KeyValuePair<Vector2Int, (TileBase, TileBase)> pair in job.TileByPos)
                 {
                     _tilemap.SetTile( (Vector3Int)pair.Key, pair.Value.Item1 );
                 }
-                foreach (KeyValuePair<Vector2Int, GameObject> pair in job.EraseObjects)
+                foreach (KeyValuePair<GameObject, Vector2Int> pair in job.EraseObjectsTest)
                 {
-                    pair.Value.transform.position = _tilemap.CellToWorld( (Vector3Int)pair.Key ) + new Vector3( _tileSize / 2, _tileSize / 2 );
+                    Debug.Log( "AA2" );
+                    pair.Key.SetActive( true );
+                    pair.Key.transform.position = _tilemap.CellToWorld( (Vector3Int)pair.Value ) + new Vector3( _tileSize / 2, _tileSize / 2 );
                 }
                 break;
             case EJobType.eSetValue:
@@ -109,13 +119,15 @@ public class EditJobManager : MonoBehaviour
             case EJobType.eSetObject:
                 foreach (KeyValuePair<Vector2Int, GameObject> pair in job.TargetObjects)
                 {
-                    Destroy( pair.Value );
+                    if (!pair.Value.activeSelf)
+                        Destroy( pair.Value );
                 }
                 break;
             case EJobType.eErase:
-                foreach (KeyValuePair<Vector2Int, GameObject> pair in job.EraseObjects)
+                foreach (KeyValuePair<GameObject, Vector2Int> pair in job.EraseObjectsTest)
                 {
-                    Destroy( pair.Value );
+                    if (!pair.Key.activeSelf)
+                        Destroy( pair.Key );
                 }
                 break;
             default:
@@ -137,6 +149,7 @@ public class EditJobManager : MonoBehaviour
             case EJobType.eSetObject:
                 foreach (KeyValuePair<Vector2Int, GameObject> pair in job.TargetObjects)
                 {
+                    pair.Value.SetActive( true );
                     pair.Value.transform.position = _tilemap.CellToWorld( (Vector3Int)pair.Key ) + new Vector3( _tileSize / 2, _tileSize / 2 );
                 }
                 break;
@@ -146,8 +159,12 @@ public class EditJobManager : MonoBehaviour
                     _tilemap.SetTile( (Vector3Int)pair.Key, pair.Value.Item2 );
                 }
 
-                RemoveOnIterate( job.EraseObjects );
-
+                //RemoveOnIterate( job.EraseObjects );
+                foreach (KeyValuePair<GameObject, Vector2Int> pair in job.EraseObjectsTest)
+                {
+                    pair.Key.SetActive( false );
+                    pair.Key.transform.position = new Vector3( 100, 100, 0 );
+                }
                 break;
             case EJobType.eSetValue:
                 break;
@@ -174,5 +191,10 @@ public class EditJobManager : MonoBehaviour
             dic.Remove( toRemoveKey[i] );
             dic.Add( toRemoveKey[i], tmp );
         }
+    }
+
+    public Dictionary<GameObject, Vector2Int> ObjectPos
+    {
+        get { return _objectPos; }
     }
 }

@@ -22,18 +22,19 @@ public class EditJob : MonoBehaviour
     private Dictionary<Vector2Int, GameObject> _targetObjects;
     private Dictionary<Vector2Int, (TileBase, TileBase)> _tileByPos;
     private Dictionary<Vector2Int, GameObject> _eraseObjects;
+    private Dictionary<GameObject, Vector2Int> _eraseObjectsTest;
 
     public EditJob()
     {
         _targetObjects = new Dictionary<Vector2Int, GameObject>();
         _tileByPos = new Dictionary<Vector2Int, (TileBase, TileBase)>();
         _eraseObjects = new Dictionary<Vector2Int, GameObject>();
+        _eraseObjectsTest = new Dictionary<GameObject, Vector2Int>();
     }
 
     public bool IsEmptyJob()
     {
-        Debug.Log( _targetObjects.Count + ", " + _tileByPos.Count + ", " + _eraseObjects.Count );
-        return _targetObjects.Count == 0 && _tileByPos.Count == 0 && _eraseObjects.Count == 0;
+        return _targetObjects.Count == 0 && _tileByPos.Count == 0 && _eraseObjectsTest.Count == 0;
     }
 
     public EJobType JobType
@@ -58,6 +59,11 @@ public class EditJob : MonoBehaviour
     {
         get { return _eraseObjects; }
         set { _eraseObjects = value; }
+    }
+
+    public Dictionary<GameObject, Vector2Int> EraseObjectsTest
+    {
+        get { return _eraseObjectsTest; }
     }
 }
 
