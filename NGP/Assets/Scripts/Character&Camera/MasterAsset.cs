@@ -6,24 +6,44 @@ public class MasterAsset : MonoBehaviour
 {
     public static MasterAsset instance;
 
-    private Camera _camera1; // 첫 번째 카메라
-    private Camera _camera2; // 두 번째 카메라
+    private CharacterMovement _charcterMovement1;
+    private CharacterMovement _charcterMovement2;
+
+    private CameraController _camera1;
+    private CameraController _camera2;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            _camera1 = GameObject.Find("Camera1").GetComponent<Camera>();
-            _camera2 = GameObject.Find("Camera2").GetComponent<Camera>();
+            _camera1 = GameObject.Find("Camera1").GetComponent<CameraController>();
+            _camera2 = GameObject.Find("Camera2").GetComponent<CameraController>();
             _camera1.enabled = true;
             _camera2.enabled = true;
-            SetCameraRect();
+
+            _charcterMovement1 = GameObject.Find("MC1").GetComponent<CharacterMovement>();
+            _charcterMovement2 = GameObject.Find("MC2").GetComponent<CharacterMovement>();
+
+
         }
     }
-    public void SetCameraRect()
+    private void Update()
     {
-        _camera1.rect = new Rect(0f, 0.5f, 1f, 0.5f); // 상단 영역
-        _camera2.rect = new Rect(0f, 0f, 1f, 0.5f);   // 하단 영역
+        if (IsStageCompleted())
+        {
+            _charcterMovement1.SetCharacterSpeed(0f);
+            _charcterMovement2.SetCharacterSpeed(0f);
+            _charcterMovement1.SetCharacterControllability(false);
+            _charcterMovement2.SetCharacterControllability(false);
+            //_camera1.IsActive(false);
+            //_camera2.IsActive(false);
+        }
+
+    }
+
+    public bool IsStageCompleted()
+    {
+        return _charcterMovement1.IsOnGoal() && _charcterMovement2.IsOnGoal();
     }
 }

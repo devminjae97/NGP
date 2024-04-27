@@ -12,21 +12,31 @@ public class CameraController : MonoBehaviour
     private Vector3 _targetPosition;
     private Vector3 _velocity = Vector3.zero;
 
+    private bool _isActive;
+
     private void Awake()
     {
         _characterMovement = FindObjectOfType<CharacterMovement>();
         if (_target != null)
         {
             transform.position = _target.position + _defaultCameraPosition;
+            _isActive = true;
         }
     }
 
     private void Update()
     {
-        if (_characterMovement.IsPlayerStopped() && IsUsing())
-            MoveCameraWithInput();
-        else
-            FollowPlayer();
+        if (_isActive)
+        {
+            if (_characterMovement.IsPlayerStopped() && IsUsing())
+                MoveCameraWithInput();
+            else
+                FollowPlayer();
+        }
+    }
+    public void IsActive(bool b)
+    {
+        _isActive = b;
     }
 
     bool IsUsing()
@@ -35,7 +45,6 @@ public class CameraController : MonoBehaviour
             return  true;
         else
             return false;
-       
     }
 
     void FollowPlayer()
