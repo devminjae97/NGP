@@ -23,6 +23,7 @@ public class CharacterMovement : MonoBehaviour
     private float _groundVelocity = 5.0f;
     private float _swampVelocity = 2.0f;
 
+    private bool _isSinking = false;
     private bool _isControllable = false;
 
     void Start()
@@ -56,17 +57,23 @@ public class CharacterMovement : MonoBehaviour
         {
             if (_rigidbody.velocity.x < _groundVelocity && -_rigidbody.velocity.x < _groundVelocity)
                 _rigidbody.AddForce(movement * _additionalForce, ForceMode2D.Force);
+
+            _isSinking = false;
         }
         else if (!IsOnGround() && IsOnIce() && !IsOnSwamp()) //얼음위에서
         {
             Vector2 iceMovement = new Vector2(_rigidbody.velocity.x * _iceVelocity, 0);
             if (_rigidbody.velocity.x < _iceVelocity && -_rigidbody.velocity.x < _iceVelocity)
                 _rigidbody.AddForce(iceMovement, ForceMode2D.Force);
+
+            _isSinking = false;
         }
         else if(!IsOnGround() && !IsOnIce() && IsOnSwamp()) //늪위에서
         {
             if (_rigidbody.velocity.x < _swampVelocity && -_rigidbody.velocity.x < _swampVelocity)
                 _rigidbody.AddForce(movement*_additionalForce, ForceMode2D.Force);
+
+            _isSinking = true;
         }
     }
 
@@ -90,6 +97,11 @@ public class CharacterMovement : MonoBehaviour
     public void SetCharacterControllability(bool b)
     {
         _isControllable = b;
+    }
+
+    public bool IsSinking()
+    {
+        return _isSinking;
     }
 
     public void SetCharacterSpeed(float f)

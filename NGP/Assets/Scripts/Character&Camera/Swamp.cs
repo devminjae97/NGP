@@ -5,7 +5,6 @@ using UnityEngine;
 public class Swamp : MonoBehaviour
 {
     [SerializeField] protected float _increasedFriction = 100f;
-
     private float _normalFriction = 1f;
 
 
@@ -18,6 +17,7 @@ public class Swamp : MonoBehaviour
             playerRB.drag += _increasedFriction;
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
