@@ -11,6 +11,7 @@ public enum EJobType
     eErase,
     eSetValue,
     eClickButton,
+    eSelectObject,
 }
 
 /*
@@ -21,20 +22,18 @@ public class EditJob : MonoBehaviour
     protected EJobType _jobType;
     private Dictionary<Vector2Int, GameObject> _targetObjects;
     private Dictionary<Vector2Int, (TileBase, TileBase)> _tileByPos;
-    private Dictionary<Vector2Int, GameObject> _eraseObjects;
-    private Dictionary<GameObject, Vector2Int> _eraseObjectsTest;
+    private Dictionary<GameObject, Vector2Int> _eraseObjects;
 
     public EditJob()
     {
         _targetObjects = new Dictionary<Vector2Int, GameObject>();
         _tileByPos = new Dictionary<Vector2Int, (TileBase, TileBase)>();
-        _eraseObjects = new Dictionary<Vector2Int, GameObject>();
-        _eraseObjectsTest = new Dictionary<GameObject, Vector2Int>();
+        _eraseObjects = new Dictionary<GameObject, Vector2Int>();
     }
 
     public bool IsEmptyJob()
     {
-        return _targetObjects.Count == 0 && _tileByPos.Count == 0 && _eraseObjectsTest.Count == 0;
+        return _targetObjects.Count == 0 && _tileByPos.Count == 0 && _eraseObjects.Count == 0;
     }
 
     public EJobType JobType
@@ -55,15 +54,9 @@ public class EditJob : MonoBehaviour
         set { _tileByPos = value; }
     }
 
-    public Dictionary<Vector2Int, GameObject> EraseObjects
+    public Dictionary<GameObject, Vector2Int> EraseObjects
     {
         get { return _eraseObjects; }
-        set { _eraseObjects = value; }
-    }
-
-    public Dictionary<GameObject, Vector2Int> EraseObjectsTest
-    {
-        get { return _eraseObjectsTest; }
     }
 }
 

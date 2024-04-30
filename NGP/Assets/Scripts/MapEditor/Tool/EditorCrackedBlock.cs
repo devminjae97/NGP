@@ -64,16 +64,19 @@ public class EditorCrackedBlock : EditorToolBase
         DrawObject( _crackedBlockObject, pos, editJob );
     }
 
-    public void OnClickRespawnTimeButton()
-    {
-        _detailUI.IsOpen = !_detailUI.IsOpen;
-        _detailUIObject.SetActive( _detailUI.IsOpen );
-    }
-
     public void OnClickCrackedBlockButton()
     {
         base.OnClickButton();
         _editorController.InitButtonGroup( ETileType.eCrackedBlock, this );
         _selectCursor.transform.localScale = new Vector3( _size, _size, 0 );
+    }
+
+    public void OnClickRespawnTimeButton()
+    {
+        OnClickToolOptionButton();
+        _detailUI.SetTextAreaVisibility( true );
+        _detailUI.SetTitle( "Respawn Time" );
+        // 양성인 TODO: 스크립트에 따라 생성
+        // _detailUI.SetCurrentValueFloat( _crackedBlockObject );
     }
 }

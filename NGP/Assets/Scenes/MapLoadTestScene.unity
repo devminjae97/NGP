@@ -581,7 +581,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.13333334, g: 0.1254902, b: 0.20392159, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -800,7 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4449a37b4dca9a04b892fb304d05e279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalBlock: {fileID: 11400000, guid: afb97587f5478c14a92bba6802299dae, type: 2}
+  _normalBlock: {fileID: 11400000, guid: f390d1e8750208945b0ed233f9a79353, type: 2}
   _startFlag: {fileID: 774695419595358540, guid: 462265e6d4c89a84d9e15c0b9a4eac58, type: 3}
   _goalFlag: {fileID: 446098082526769741, guid: eca1d0875a7be1a4c952af78319c0ce3, type: 3}
   _crackedBlock: {fileID: 6054211902060536145, guid: 0f819984e1d9eb64e97b2d82ec41b7e9, type: 3}

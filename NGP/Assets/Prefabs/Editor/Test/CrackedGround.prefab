@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 7639290213838507555}
   m_Layer: 0
   m_Name: CrackedGround
-  m_TagString: CrackedGround
+  m_TagString: CrackedBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

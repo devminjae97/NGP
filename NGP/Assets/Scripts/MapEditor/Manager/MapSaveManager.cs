@@ -42,7 +42,6 @@ public class MapSaveManager : MonoBehaviour
     {
         SaveTile();
         SaveGimmick();
-        // ¾ç¼ºÀÎ TODO: Save CrackedBlock ...
         SaveToJson();
     }
 

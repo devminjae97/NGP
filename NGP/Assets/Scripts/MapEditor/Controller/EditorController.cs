@@ -4,6 +4,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
+using UnityEngineInternal;
 
 public enum ETileType
 {
@@ -18,8 +19,10 @@ public enum ETileType
 
 public class EditorController : MonoBehaviour
 {
+    private bool isDragging;
     private float _brushSize;
     private float _tileSize;
+    private float _tileHalfSize;
     private float _dragScreenSpeed = 4000;
     private Vector3 dragScreenLatePos;
 
@@ -33,13 +36,15 @@ public class EditorController : MonoBehaviour
     [SerializeField] private GameObject _eraserButtonGroup;
     [SerializeField] private GameObject _crackedBlockButtonGroup;
     [SerializeField] private GameObject _flagButtonGroup;
+    private GameObject _draggingObject;
 
     private Dictionary<ETileType, GameObject> _buttonGroupByTileType;
     [SerializeField] private Camera _mainCamera;
 
     private EditorToolBase _tool;
-
     private EditJob _editJob;
+
+    private Dictionary<Vector3Int, SpriteRenderer> _selectedCursors;
 
     private void Awake()
     {
@@ -66,51 +71,122 @@ public class EditorController : MonoBehaviour
         _currentTileType = ETileType.eNone;
         _brushSize = _tilemap.cellSize.x;
         _tileSize = _tilemap.cellSize.x;
+        _tileHalfSize = _tileSize * 0.5f;
+        _currentTileType = ETileType.eNone;
+        _selectedCursors = new Dictionary<Vector3Int, SpriteRenderer>();
     }
 
     void Update()
     {
-        if (_currentTileType == ETileType.eNone || IsPointerOverUI()) return;
+        if (IsPointerOverUI()) return;
 
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
-
-        // Set Cursor Position
-        if ((_tool.Size / _tileSize) % 2 == 1)
+        if (_currentTileType == ETileType.eNone)
         {
-            _selectCursor.transform.position = GetCursorCellPosition( mousePosition );
+            DragDrop();
         }
         else
         {
-            _selectCursor.transform.position = GetCursorCellPosition( mousePosition ) - new Vector3( _tileSize / 2, _tileSize / 2 );
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+
+            if ((_tool.Size / _tileSize) % 2 == 1)
+            {
+                _selectCursor.transform.position = GetCursorCellPosition( mousePosition );
+            }
+            else
+            {
+                _selectCursor.transform.position = GetCursorCellPosition( mousePosition ) - new Vector3( _tileHalfSize, _tileHalfSize, 0 );
+                _tool.SetCursorColor( mousePosition, _selectCursor );
+            }
         }
-        // Set Cursor Color
-        _tool.SetCursorColor( mousePosition, _selectCursor );
-        // Dragging Camera
+
         DragView();
-
         Edit();
-
         UndoRedo();
+    }
+
+    private void DragDrop()
+    {
+        if (Input.GetMouseButtonDown( 0 ))
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+            Vector3 origin, dir;
+            float dist;
+            RaycastHit2D hit;
+            origin = _tilemap.CellToWorld( _tilemap.WorldToCell(mousePosition) ) + new Vector3( _tileHalfSize, _tileHalfSize, 0 );
+            dir = new Vector3( 0, 0, 1 );
+            dist = 200;
+            hit = Physics2D.Raycast( origin, dir, dist );
+            Debug.DrawRay( origin, dir * 10, UnityEngine.Color.yellow, 100 );
+            if (hit)
+            {
+                isDragging = true;
+                _draggingObject = hit.transform.gameObject;
+            }
+        }
+        else if (Input.GetMouseButton( 0 ))
+        {
+            if (isDragging && _draggingObject)
+            {
+                _draggingObject.transform.position = _selectCursor.transform.position;
+            }
+        }
+        else if (Input.GetMouseButtonUp( 0 ))
+        {
+            isDragging = false;
+            _draggingObject = null;
+        }
     }
 
     private void Edit()
     {
-        if (Input.GetMouseButtonDown( 0 ))
+        if (_currentTileType == ETileType.eNone)
         {
-            _editJob = gameObject.AddComponent<EditJob>();
-        }
-        else if (Input.GetMouseButton( 0 ))
-        {
-            _tool.Edit( _selectCursor.transform.position, _editJob );
-        }
-        else if (Input.GetMouseButtonUp( 0 ))
-        {
-            if (!_editJob.IsEmptyJob())
+            if (Input.GetMouseButtonDown( 0 ))
             {
-                EditJobManager.GetInstance().PushJob( _editJob );
+               /* if (!Input.GetKey( KeyCode.LeftControl ))
+                {
+                    ClearSelectedCursors();
+                }*/
+                _editJob = gameObject.AddComponent<EditJob>();
+                _tool.Edit( GetCursorCellPosition( Camera.main.ScreenToWorldPoint( Input.mousePosition ) ), _editJob );
             }
-            Destroy( _editJob );
+            else if (Input.GetMouseButtonUp( 0 ))
+            {
+                /*if (!_editJob.IsEmptyJob())
+                {
+                    EditJobManager.GetInstance().PushJob( _editJob );
+                }
+                Destroy( _editJob );*/
+            }
         }
+        else
+        {
+            if (Input.GetMouseButtonDown( 0 ))
+            {
+                _editJob = gameObject.AddComponent<EditJob>();
+            }
+            else if (Input.GetMouseButton( 0 ))
+            {
+                 _tool.Edit( _selectCursor.transform.position, _editJob );
+            }
+            else if (Input.GetMouseButtonUp( 0 ))
+            {
+                if (!_editJob.IsEmptyJob())
+                {
+                    EditJobManager.GetInstance().PushJob( _editJob );
+                }
+                Destroy( _editJob );
+            }
+        }
+    }
+
+    private void ClearSelectedCursors()
+    {
+        foreach (KeyValuePair<Vector3Int,SpriteRenderer> pair in _selectedCursors)
+        {
+            Destroy( pair.Value );
+        }
+        _selectedCursors.Clear();
     }
 
     private void UndoRedo()
@@ -168,7 +244,8 @@ public class EditorController : MonoBehaviour
 
     Vector3 GetCursorCellPosition( Vector2 mousePosition )
     {
-        return _tilemap.CellToWorld( _tilemap.WorldToCell( mousePosition ) ) + new Vector3( _tileSize * 0.5f, _tileSize * 0.5f, 0 ); ;
+        Vector3 vec = new Vector3( _tilemap.CellToWorld( _tilemap.WorldToCell( mousePosition ) ).x, _tilemap.CellToWorld( _tilemap.WorldToCell( mousePosition ) ).y, 0);
+        return vec + new Vector3( _tileHalfSize, _tileHalfSize, 0 );
     }
 
     /*
@@ -191,12 +268,20 @@ public class EditorController : MonoBehaviour
         Color color = _selectCursor.color;
         color.a = _currentTileType == ETileType.eNone ? 0 : 1;
         _selectCursor.color = color;
+        //_selectCursor.gameObject.SetActive( _currentTileType != ETileType.eNone );
 
         _tool = toolToSet;
+
+        ClearSelectedCursors();
     }
 
-    public void OnClickNoneButton()
+    public ETileType TileType
+    { 
+        get { return _currentTileType; }
+    }
+
+    public Dictionary<Vector3Int, SpriteRenderer> SelectedCursors
     {
-        InitButtonGroup( ETileType.eNone, null );
+        get { return _selectedCursors; }
     }
 }

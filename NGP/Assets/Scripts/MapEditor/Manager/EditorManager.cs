@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public delegate void TilemapDelegate( EditorScene scene );
 
@@ -16,7 +17,9 @@ public class EditorManager : MonoBehaviour
     [SerializeField] private Tilemap[] _tilemap;
     [SerializeField] private SpriteRenderer _selectCursor;
     [SerializeField] private List<GameObject> _deactivateUIOnButtonClick;
-
+    [SerializeField] private DetailUI _detailUI;
+    private Button _currentEditorTool;
+  
     public event TilemapDelegate OnSceneChanged;
 
     private void Awake()
@@ -88,5 +91,16 @@ public class EditorManager : MonoBehaviour
     {
         get { return _selectCursor; }
         set { _selectCursor = value; }
+    }
+
+    public DetailUI DetailUI
+    {
+        get { return _detailUI; }
+    }
+
+    public Button CurrentEditorTool
+    {
+        get { return _currentEditorTool; }
+        set { _currentEditorTool = value; }
     }
 }

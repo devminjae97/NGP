@@ -16,7 +16,7 @@ public class Deque<T>
         this.arr = new T[MAX];
         front = -1;
         rear = 0;
-        this.size = 3;
+        this.size = 10;
     }
 
     public bool IsFull()

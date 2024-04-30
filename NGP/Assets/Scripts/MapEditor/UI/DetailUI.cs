@@ -6,15 +6,21 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using static UnityEditor.PlayerSettings;
 
+public enum EUIMode
+{
+    eSelect,    // 개별 선택 (선택한 오브젝트 값 수정)
+    eSet,       // 앞으로 설치할 것 (프리팹 값 수정)
+}
+
 public class DetailUI : MonoBehaviour
 {
-    private bool _isPointerDownTabBar;
-    private Vector3 _posGapMouseAndUI;
-    private bool _isOpen;
-    [SerializeField] private TextMeshProUGUI _title;
-    [SerializeField] private TextMeshProUGUI _currentValue;
-    [SerializeField] private GameObject _textAreaObject;
-    private TextMeshProUGUI _textArea;
+    protected bool _isPointerDownTabBar;
+    protected Vector3 _posGapMouseAndUI;
+    protected bool _isOpen;
+    [SerializeField] protected TextMeshProUGUI _title;
+    [SerializeField] protected TextMeshProUGUI _currentValue;
+    [SerializeField] protected GameObject _textAreaObject;
+    protected TextMeshProUGUI _textArea;
 
     private void Awake()
     {
@@ -29,12 +35,10 @@ public class DetailUI : MonoBehaviour
         }
     }
 
-    public void OnClickApply()
+    public void OnValueChange()
     {
         int value = int.Parse( _textArea.text.Substring( 0, _textArea.text.Length - 1 ) );
         _currentValue.text = value.ToString();
-        // 정해지면 추가
-        // CrackedGround.timeToRespawn = value;
     }
 
     public void OnPointerDownTabBar()

@@ -4,9 +4,9 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class MapLoadManager : MonoBehaviour
+public class MapLoadAtEditorManager : MonoBehaviour
 {
-    private static MapLoadManager instance;
+    private static MapLoadAtEditorManager instance;
 
     const string dataPath = "SaveData/EditorMapData.json";
 
@@ -28,7 +28,7 @@ public class MapLoadManager : MonoBehaviour
         _editorMapData = new EditorMapData();
     }
 
-    public static MapLoadManager GetInstance()
+    public static MapLoadAtEditorManager GetInstance()
     {
         return instance;
     }
@@ -41,17 +41,6 @@ public class MapLoadManager : MonoBehaviour
         _mapDraw.DrawNormalGround( _editorMapData );
         _mapDraw.DrawFlag( _editorMapData );
         _mapDraw.DrawCrackedBlock( _editorMapData );
-    }
-
-    [ContextMenu( "From Json Data" )]
-    public void LoadDataToContainerAtEditor()
-    {
-        LoadFromJson();
-
-        _mapDraw.DrawNormalGroundAtEditor( _editorMapData );
-        _mapDraw.DrawFlagAtEditor( _editorMapData );
-        _mapDraw.DrawCrackedBlockAtEditor( _editorMapData );
-        EditorManager.GetInstance().EditorTilemap[1].gameObject.SetActive( false );
     }
 
     void LoadFromJson()

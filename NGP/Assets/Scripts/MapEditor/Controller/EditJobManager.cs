@@ -11,6 +11,7 @@ public class EditJobManager : MonoBehaviour
     private Deque<EditJob> _redos;
     private Tilemap _tilemap;
     private float _tileSize;
+    private float _tileHalfSize;
     private Dictionary<GameObject, Vector2Int> _objectPos;
 
     private void Awake()
@@ -37,6 +38,7 @@ public class EditJobManager : MonoBehaviour
     {
         _tilemap = EditorManager.GetInstance().CurrentEditorScene.tilemap;
         _tileSize = _tilemap.cellSize.x;
+        _tileHalfSize = _tileSize * 0.5f;
         _objectPos = new Dictionary<GameObject, Vector2Int>();
     }
 
@@ -84,7 +86,6 @@ public class EditJobManager : MonoBehaviour
                 }
                 break;
             case EJobType.eSetObject:
-                //RemoveOnIterate( job.TargetObjects );
                 foreach (KeyValuePair<Vector2Int, GameObject> pair in job.TargetObjects)
                 {
                     pair.Value.SetActive( false );
@@ -92,16 +93,14 @@ public class EditJobManager : MonoBehaviour
                 }
                 break;
             case EJobType.eErase:
-                Debug.Log( "AA1" );
                 foreach (KeyValuePair<Vector2Int, (TileBase, TileBase)> pair in job.TileByPos)
                 {
                     _tilemap.SetTile( (Vector3Int)pair.Key, pair.Value.Item1 );
                 }
-                foreach (KeyValuePair<GameObject, Vector2Int> pair in job.EraseObjectsTest)
+                foreach (KeyValuePair<GameObject, Vector2Int> pair in job.EraseObjects)
                 {
-                    Debug.Log( "AA2" );
                     pair.Key.SetActive( true );
-                    pair.Key.transform.position = _tilemap.CellToWorld( (Vector3Int)pair.Value ) + new Vector3( _tileSize / 2, _tileSize / 2 );
+                    pair.Key.transform.position = _tilemap.CellToWorld( (Vector3Int)pair.Value ) + new Vector3( _tileHalfSize, _tileHalfSize );
                 }
                 break;
             case EJobType.eSetValue:
@@ -124,7 +123,7 @@ public class EditJobManager : MonoBehaviour
                 }
                 break;
             case EJobType.eErase:
-                foreach (KeyValuePair<GameObject, Vector2Int> pair in job.EraseObjectsTest)
+                foreach (KeyValuePair<GameObject, Vector2Int> pair in job.EraseObjects)
                 {
                     if (!pair.Key.activeSelf)
                         Destroy( pair.Key );
@@ -150,7 +149,7 @@ public class EditJobManager : MonoBehaviour
                 foreach (KeyValuePair<Vector2Int, GameObject> pair in job.TargetObjects)
                 {
                     pair.Value.SetActive( true );
-                    pair.Value.transform.position = _tilemap.CellToWorld( (Vector3Int)pair.Key ) + new Vector3( _tileSize / 2, _tileSize / 2 );
+                    pair.Value.transform.position = _tilemap.CellToWorld( (Vector3Int)pair.Key ) + new Vector3( _tileHalfSize, _tileHalfSize );
                 }
                 break;
             case EJobType.eErase:
@@ -159,8 +158,7 @@ public class EditJobManager : MonoBehaviour
                     _tilemap.SetTile( (Vector3Int)pair.Key, pair.Value.Item2 );
                 }
 
-                //RemoveOnIterate( job.EraseObjects );
-                foreach (KeyValuePair<GameObject, Vector2Int> pair in job.EraseObjectsTest)
+                foreach (KeyValuePair<GameObject, Vector2Int> pair in job.EraseObjects)
                 {
                     pair.Key.SetActive( false );
                     pair.Key.transform.position = new Vector3( 100, 100, 0 );
@@ -170,26 +168,6 @@ public class EditJobManager : MonoBehaviour
                 break;
             default:
                 break;
-        }
-    }
-
-    private void RemoveOnIterate( Dictionary<Vector2Int, GameObject> dic )
-    {
-        List<Vector2Int> toRemoveKey = new List<Vector2Int>();
-        List<GameObject> toRemoveValue = new List<GameObject>();
-        foreach (KeyValuePair<Vector2Int, GameObject> pair in dic)
-        {
-            if (pair.Value == null) continue;
-            toRemoveKey.Add( pair.Key );
-            toRemoveValue.Add( pair.Value );
-        }
-        for (int i = 0; i < toRemoveKey.Count; i++)
-        {
-            GameObject tmp = Instantiate( toRemoveValue[i], new Vector3( 100, 100, 0 ), Quaternion.identity );
-            tmp.transform.parent = _tilemap.transform;
-            Destroy( dic[toRemoveKey[i]] );
-            dic.Remove( toRemoveKey[i] );
-            dic.Add( toRemoveKey[i], tmp );
         }
     }
 

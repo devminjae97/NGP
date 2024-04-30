@@ -44,7 +44,7 @@ public class EditorEraser : EditorToolBase
                 {
                     //if (editJob.EraseObjects.ContainsKey( curPos )) continue;
                     //editJob.EraseObjects.Add( curPos, result.Item2.transform.gameObject );
-                    editJob.EraseObjectsTest.Add( result.Item2.transform.gameObject, curPos );
+                    editJob.EraseObjects.Add( result.Item2.transform.gameObject, curPos );
                     result.Item2.transform.position = new Vector3( 100, 100 );
                     result.Item2.transform.gameObject.SetActive( false );
                 }

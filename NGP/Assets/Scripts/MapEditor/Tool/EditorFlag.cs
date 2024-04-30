@@ -69,7 +69,7 @@ public class EditorFlag : EditorToolBase
         {
             Destroy( EditorManager.GetInstance().CurrentEditorScene.startFlag );
         }
-        GameObject obj = Instantiate( _startFlag, _tilemap.CellToWorld( pos ) + new Vector3( _tileSize / 2, _tileSize / 2 ), Quaternion.identity );
+        GameObject obj = Instantiate( _startFlag, _tilemap.CellToWorld( pos ) + new Vector3( _tileHalfSize, _tileHalfSize ), Quaternion.identity );
         EditorManager.GetInstance().CurrentEditorScene.startFlag = obj;
         obj.transform.parent = EditorManager.GetInstance().CurrentEditorScene.tilemap.transform;
     }
@@ -80,7 +80,7 @@ public class EditorFlag : EditorToolBase
         {
             Destroy( EditorManager.GetInstance().CurrentEditorScene.goalFlag );
         }
-        GameObject obj = Instantiate( _goalFlag, _tilemap.CellToWorld( pos ) + new Vector3( _tileSize / 2, _tileSize / 2 ), Quaternion.identity );
+        GameObject obj = Instantiate( _goalFlag, _tilemap.CellToWorld( pos ) + new Vector3( _tileHalfSize, _tileHalfSize ), Quaternion.identity );
         EditorManager.GetInstance().CurrentEditorScene.goalFlag = obj;
         obj.transform.parent = EditorManager.GetInstance().CurrentEditorScene.tilemap.transform;
     }
