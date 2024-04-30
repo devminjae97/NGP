@@ -5,11 +5,12 @@ public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] protected float _moveSpeed = 20f;
     [SerializeField] protected float _jumpForce = 10f;
-    [SerializeField] protected float _swampJumpForce = 15f;
+    [SerializeField] protected float _swampJumpForce = 25f;
     [SerializeField] protected float _additionalForce = 500f;
     
     [SerializeField] protected Vector2 _groundCheckBoxSize;
     [SerializeField] protected float _groundCheckCastDistance;
+    //[SerializeField] protected Vector2 _initPos;
 
     [SerializeField] protected LayerMask _groundLayer;
     [SerializeField] protected LayerMask _iceLayer;
@@ -26,8 +27,14 @@ public class CharacterMovement : MonoBehaviour
     private bool _isSinking = false;
     private bool _isControllable = false;
 
-    void Start()
+    void Awake()
     {
+        InitializeValues();
+    }
+
+    private void InitializeValues()
+    {
+        //_initPos = transform.position;
         _rigidbody = GetComponent<Rigidbody2D>();
         _groundCheckBoxSize = new Vector2(0.45f, 0.1f);
         _groundCheckCastDistance = 0.95f;
@@ -51,7 +58,6 @@ public class CharacterMovement : MonoBehaviour
 
     void Move()
     {
-        
         Vector2 movement = _moveInput * _moveSpeed * Time.fixedDeltaTime;
         if (IsOnGround() && !IsOnIce() && !IsOnSwamp()) //¶¥À§¿¡¼­
         {
@@ -94,14 +100,12 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+
+    #region Set() >>>>
+
     public void SetCharacterControllability(bool b)
     {
         _isControllable = b;
-    }
-
-    public bool IsSinking()
-    {
-        return _isSinking;
     }
 
     public void SetCharacterSpeed(float f)
@@ -109,10 +113,22 @@ public class CharacterMovement : MonoBehaviour
         _rigidbody.velocity = new Vector2(f,0);
     }
 
+    #endregion Set() >>>>
+
+    #region bool() >>>>
+
     public bool IsPlayerStopped()
     {
         return _moveInput == Vector2.zero;
     }
+    public bool IsSinking()
+    {
+        return _isSinking;
+    }
+
+    #endregion bool() >>>>
+
+    #region IsOnLayer() >>>>
 
     public bool IsOnGround()
     {
@@ -141,6 +157,8 @@ public class CharacterMovement : MonoBehaviour
         IsOnGoal();
         IsOnSwamp();
     }
+
+    #endregion IsOnLayer() >>>>
 
     public void OnDrawGizmos()
     {
