@@ -18,13 +18,14 @@ public abstract class GimmickBase : MonoBehaviour
             if (_isActivated != value)
             {
                 _isActivated = value;
+                enabled = value;
                 OnStateChanged?.Invoke(null, value);
             }
         }
     }
 
     public virtual void Activate()
-    {
+    { 
         IsActivated = true;
     }
 
@@ -33,7 +34,7 @@ public abstract class GimmickBase : MonoBehaviour
         IsActivated = false;
     }
     
-    public void Reset()
+    public virtual void Reset()
     {
         Deactivate();
     }
