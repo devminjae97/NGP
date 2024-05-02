@@ -1,51 +1,31 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    [SerializeField] private SoundPack _soundPack;
-    
     private AudioSourcePool _audioSourcePool;
     
-
     // 재생중인 tag to audio dictionary
-    //private Dictionary<string, AudioSource> _workingAudioSources = new();
     private HashSet<AudioSourceHandle> _workingAudioSourceHandles = new();
-    //private HashSet<IEnumerator> _pendingReleaseIEs = new();
 
-    public void PlaySoundOneShot( /* audio tag */)
-    {
-        
-    }
+    #region UniTask >>>>
 
+    private CancellationTokenSource _mainCTS;
+
+    #endregion UniTask <<<<
+    
     public AudioSourceHandle PlaySoundOneShot(AudioClip audioClip)
         => PlaySound_Internal(audioClip, false);
 
-    public void PlaySoundLoop( /* audio tag */)
-    {
-        
-    }
-
     public AudioSourceHandle PlaySoundLoop(AudioClip audioClip)
         => PlaySound_Internal(audioClip, true);
-
-    public void StopSound( /* audio tag */)
-    {
-        
-    }
 
     public void StopSound(AudioSourceHandle handle)
     {
         StopSound_Internal(handle);
     }
-
-    /*
-    public void StopSound(AudioClip audioClip)
-    {
-        StopSound_Internal(audioClip);
-    }
-    */
 
     public void StopAllSounds()
     {
@@ -55,9 +35,7 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
-    // @TODO, 같은 클립 빠르게 재생하면 release가 제대로 안 됨
-    //Coroutine문제 -> Task/ UniTask로 바꿔야함
-    private AudioSourceHandle PlaySound_Internal(AudioClip audioClip, bool loop, float volume = 1.0f)
+    private AudioSourceHandle PlaySound_Internal(AudioClip audioClip, bool loop, float volume = 1.0f /*useless for now(24.05.02.) */)
     {
         if (audioClip == null)
         {
@@ -77,80 +55,74 @@ public class AudioManager : Singleton<AudioManager>
             return null;
         }
 
+        CheckMainCTS();
+        
         audioSource.clip = audioClip;
         audioSource.loop = loop;
         audioSource.Play();
         
-        AudioSourceHandle handle = new() { audioSource = audioSource, audioClip = audioClip, releaseIE = null };
-        var releaseIE = IEReleaseOnFinished(handle);
-        //handle.releaseIE = releaseIE;
+        CancellationTokenSource newCTS = CancellationTokenSource.CreateLinkedTokenSource(_mainCTS.Token);
+        PrivateAudioSourceHandle handle = new(audioSource, audioClip, newCTS);
         
-        if (loop == false)
-        {
-            Debug.Log($"[PlaySound_Internal] loop StartCoroutine() AS: {audioSource.GetHashCode()}");
-            StartCoroutine(releaseIE);
-            //_pendingReleaseIEs.Add(releaseIE);
-        }
-        
-        Debug.Log($"[PlaySound_Internal] non loop StartCoroutine() AS: {audioSource.GetHashCode()}");
         _workingAudioSourceHandles.Add(handle);
+        
+        AsyncReleaseHandle(handle).Forget();
 
         return handle;
     }
-    
-    /**
-     *  같은 AudioSource를 공유하며 다른 클립을 플레이 하면
-     *  
-     */
+
     private void StopSound_Internal(AudioSourceHandle handle)
     {
         if (handle == null || _workingAudioSourceHandles.Contains(handle) == false)
         {
-            return;
-        }
-        
-        var (audioSource, audioClip, releaseIE) = handle;
-        
-        if (audioSource == null || audioClip == null || releaseIE == null)
-        {
+            Debug.Log($"[StopSound_Internal] something is missing. {handle == null} {_workingAudioSourceHandles.Contains(handle) == false}");
             return;
         }
 
-        if (audioSource.enabled == false)
+        PrivateAudioSourceHandle privateHandle = (PrivateAudioSourceHandle)handle;
+        var (audioSource, audioClip, cts) = privateHandle;
+
+        if (audioSource == null || audioClip == null || cts == null)
         {
+            Debug.Log($"[StopSound_Internal] element of handle is invalid.");
             return;
         }
 
-        StopCoroutine(releaseIE);
-        _workingAudioSourceHandles.Remove(handle);
-        _audioSourcePool.Release(audioSource);
+        if (audioSource.enabled == false || audioSource.isPlaying == false)
+        {
+            //통과?
+            //return;
+        }
+
+        audioSource.Stop();
     }
-    
-    // @TODO, Task로 바꿔서 CancellationToken: Stop/StopAll에 요긴하게 쓰일듯
-    private IEnumerator IEReleaseOnFinished(AudioSourceHandle handle)
+
+    private async UniTaskVoid AsyncReleaseHandle(PrivateAudioSourceHandle handle)
     {
-        // MonobehaviourHandler를 만들어서 거기서 돌려?
-        
-        //Debug.Log($"[IEReleaseOnFinished] Start.");
         if (handle == null || _workingAudioSourceHandles.Contains(handle) == false)
         {  
-            Debug.Log($"[IEReleaseOnFinished] something is missing. {handle == null} {_workingAudioSourceHandles.Contains(handle) == false}");
-            yield break;
+            Debug.Log($"[AsyncReleaseOnFinished] something is missing. {handle == null} {_workingAudioSourceHandles.Contains(handle) == false}");
+            return;
         }
 
-        var (audioSource, audioClip, releaseIE) = handle;
+        var (audioSource, audioClip, cts) = handle;
         
-        if (audioSource == null || audioClip == null /*|| releaseIE == null*/)
+        if (audioSource == null || audioClip == null)
         {
-            Debug.Log($"[IEReleaseOnFinished]{audioSource == null}, {audioClip == null}, {releaseIE == null} ");
-            yield break;
+            Debug.Log($"[AsyncReleaseOnFinished]{audioSource == null}, {audioClip == null}, {cts == null} ");
+            return;
         }
 
-        //Debug.Log($"[IEReleaseOnFinished] Wait for {audioSource.GetHashCode()}");
-        yield return new WaitUntil(() => audioSource.isPlaying == false);
+        await UniTask.WaitUntil(() => audioSource.isPlaying == false, cancellationToken: handle.cts.Token);
+        
+        // Release에서 Stop 및 정리
+        _audioSourcePool.Release(audioSource);
+        _workingAudioSourceHandles.Remove(handle);
+    }
 
-        //Debug.Log($"[IEReleaseOnFinished] {audioSource.GetHashCode()} finished.");
-        StopSound_Internal(handle);
+    private void CheckMainCTS()
+    {
+        _mainCTS ??= CancellationTokenSource.CreateLinkedTokenSource(this.GetCancellationTokenOnDestroy());
     }
     
     private void Awake()
@@ -158,23 +130,44 @@ public class AudioManager : Singleton<AudioManager>
         // initialize pool
         BehaviourPool<AudioSource>.Initializer initializer = new (){owner = gameObject, defaultSize = 10, incrementalRate = 1.5f};
         _audioSourcePool = new(initializer);
+        
+        CheckMainCTS();
     }
+    
+    private class PrivateAudioSourceHandle : AudioSourceHandle
+    {
+        public CancellationTokenSource cts => _audioCTS;
+        
+        public PrivateAudioSourceHandle(AudioSource inAudioSource, AudioClip inAudioClip, CancellationTokenSource inAudioCTS) : base(inAudioSource, inAudioClip, inAudioCTS)
+        {
+            // Should be empty.
+        }
+        
+        public void Deconstruct(out AudioSource outAudioSource, out AudioClip outAudioClip, out CancellationTokenSource outCTS)
+        {
+            outAudioSource = _audioSource;
+            outAudioClip = _audioClip;
+            outCTS = _audioCTS;
+        }
+    }
+
 }
+
 
 public class AudioSourceHandle
 {
-    public AudioSource audioSource;
-    public AudioClip audioClip;
-    public IEnumerator releaseIE;
-
-    public void Deconstruct(out AudioSource outAudioSource, out AudioClip outAudioClip, out IEnumerator outReleaseIE)
+    protected AudioSource _audioSource;
+    protected AudioClip _audioClip;
+    protected CancellationTokenSource _audioCTS;
+    
+    protected AudioSourceHandle(AudioSource inAudioSource, AudioClip inAudioClip, CancellationTokenSource inAudioCTS)
     {
-        outAudioSource = audioSource;
-        outAudioClip = audioClip;
-        outReleaseIE = releaseIE;
+        _audioSource = inAudioSource;
+        _audioClip = inAudioClip;
+        _audioCTS = inAudioCTS;
     }
 }
-
+    
 public class AudioSourcePool : BehaviourPool<AudioSource>
 {
     public AudioSourcePool(Initializer initializer) : base(initializer)
@@ -185,6 +178,7 @@ public class AudioSourcePool : BehaviourPool<AudioSource>
     {
         if (toRelease == null)
         {
+            Debug.Log($"{toRelease.name} is null.");
             return;
         }
         
