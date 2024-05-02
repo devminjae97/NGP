@@ -3,6 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class AudioManager : Singleton<AudioManager>
 {
     private AudioSourcePool _audioSourcePool;
