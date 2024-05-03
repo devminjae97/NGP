@@ -109,7 +109,10 @@ public class GMovingBlock : GimmickBase
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.transform.SetParent(transform, true);
+            if (collision.contacts[0].normal.y == -1f)
+            {
+                collision.transform.SetParent(transform, true);
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
