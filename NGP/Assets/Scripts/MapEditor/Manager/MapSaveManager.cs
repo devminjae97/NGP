@@ -79,8 +79,8 @@ public class MapSaveManager : Singleton<MapSaveManager>
                     break;
                 case "CrackedBlock":
                     // 양성인 TODO: class 생기면 수정
-                    CrackedBlockTest crackedBlockTest = child.GetComponent<CrackedBlockTest>();
-                    CrackedBlockInfo crackedBlockInfo = new CrackedBlockInfo( crackedBlockTest.respawnTime, (Vector2Int)_tilemap[sceneNum].WorldToCell( child.position ) );
+                    GCrackedBlock crackedBlock = child.GetComponent<GCrackedBlock>();
+                    CrackedBlockInfo crackedBlockInfo = new CrackedBlockInfo( crackedBlock.RespawnTime, (Vector2Int)_tilemap[sceneNum].WorldToCell( child.position ) );
                     _editorMapData.crackedBlock[sceneNum].infos.Add( crackedBlockInfo );
                     break;
                 default:

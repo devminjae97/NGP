@@ -126,9 +126,9 @@ public class EditorController : MonoBehaviour
                 _draggingObjectInitPos = _draggingObject.transform.position;
 
                 hit.transform.gameObject.layer = 2;
-            }
 
-            _editJob = gameObject.AddComponent<EditJobDragDrop>();
+                _editJob = gameObject.AddComponent<EditJobDragDrop>();
+            }
         }
         else if (Input.GetMouseButton( 0 ))
         {
@@ -154,14 +154,16 @@ public class EditorController : MonoBehaviour
             _draggingObject.layer = 0;
             isDragging = false;
 
-            if (_editJob == null || _draggingObjectInitPos == posToSet) return;
-            if (!_editJob.IsEmptyJob())
+            if (_editJob)
             {
-                (_editJob as EditJobDragDrop).MovedPos = ( _draggingObject, (_draggingObjectInitPos, posToSet) );
-                EditJobManager.Instance.PushJob( _editJob );
+                if (_draggingObjectInitPos != posToSet)
+                {
+                    (_editJob as EditJobDragDrop).MovedPos = (_draggingObject, (_draggingObjectInitPos, posToSet));
+                    EditJobManager.Instance.PushJob( _editJob );
+                }
+                Destroy( _editJob );
             }
-            Destroy( _editJob );
-
+           
             _draggingObject = null;
         }
     }
@@ -179,16 +181,8 @@ public class EditorController : MonoBehaviour
                 }
                 _editJob = gameObject.AddComponent<EditJobSelect>();
                 _tool.Edit( GetCursorCellPosition( Camera.main.ScreenToWorldPoint( Input.mousePosition ) ), _editJob );
-            }
-            /*else if (Input.GetMouseButtonUp( 0 ))
-            {
-                if (_editJob == null) return;
-                if (!_editJob.IsEmptyJob())
-                {
-                    EditJobManager.Instance.PushJob( _editJob );
-                }
                 Destroy( _editJob );
-            }*/
+            }
         }
         else
         {
@@ -204,10 +198,7 @@ public class EditorController : MonoBehaviour
             else if (Input.GetMouseButtonUp( 0 ))
             {
                 if (_editJob == null) return;
-                if (!_editJob.IsEmptyJob())
-                {
-                    EditJobManager.Instance.PushJob( _editJob );
-                }
+                EditJobManager.Instance.PushJob( _editJob );
                 Destroy( _editJob );
             }
         }
@@ -218,7 +209,6 @@ public class EditorController : MonoBehaviour
         switch(_currentTileType)
         {
             case ETileType.eNone:
-                _editJob = gameObject.AddComponent<EditJobSelect>();
                 break;
             case ETileType.eGround:
                 _editJob = gameObject.AddComponent<EditJobDrawingTile>();
@@ -305,7 +295,7 @@ public class EditorController : MonoBehaviour
     /*
      * Set Color, TileType, ButtonGroup
      */
-    public void InitButtonGroup(ETileType tiletype, EditorToolBase toolToSet)
+    public void InitButtonGroup( ETileType tiletype, EditorToolBase toolToSet )
     {
         SetDetailUIActive( tiletype );
 
@@ -375,4 +365,8 @@ public class EditorController : MonoBehaviour
         get { return _crackedBlockButtonGroup; }
     }
 
+    public Dictionary<ETileType, DetailUI> ButtonGroupByTileType
+    {
+        get { return _buttonGroupByTileType; }
+    }
 }

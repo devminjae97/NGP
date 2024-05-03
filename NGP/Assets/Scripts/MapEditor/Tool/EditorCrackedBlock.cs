@@ -64,15 +64,16 @@ public class EditorCrackedBlock : EditorToolBase
 
     public void OnClickCrackedBlockButton()
     {
-        base.OnClickButton();
+        //base.OnClickButton();
         _editorController.InitButtonGroup( ETileType.eCrackedBlock, this );
         _selectCursor.transform.localScale = new Vector3( _size, _size, 0 );
+        _editorController.CrackedBlockButtonGroup.SetUIInfo( _toolObject );
     }
 
-    public void OnClickRespawnTimeButton()
+    /*public void OnClickRespawnTimeButton()
     {
         OnClickToolOptionButton();
         // 양성인 TODO: 스크립트에 따라 생성
         // _detailUI.SetCurrentValueFloat( _crackedBlockObject );
-    }
+    }*/
 }

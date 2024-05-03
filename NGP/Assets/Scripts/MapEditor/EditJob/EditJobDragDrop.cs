@@ -8,7 +8,7 @@ public class EditJobDragDrop : EditJob
 
     private void Start()
     {
-        _movedPos = (new GameObject(), (new Vector3(),  new Vector3()));
+        _movedPos = (null, (new Vector3(),  new Vector3()));
     }
 
     public override void Undo()

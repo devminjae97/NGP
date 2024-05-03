@@ -54,6 +54,7 @@ public class EditorManager : Singleton<EditorManager>
 
     public void SetDetailUI( DetailUI detailUI )
     {
+        Debug.Log( 1 );
         if (_detailUI)
         {
             _detailUI.gameObject.SetActive( false );

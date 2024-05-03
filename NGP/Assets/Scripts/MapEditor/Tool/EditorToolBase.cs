@@ -91,10 +91,10 @@ public abstract class EditorToolBase : MonoBehaviour
     public virtual void SetSize( float val ) { }
     public virtual void AddSize( float val ) { }
     public virtual void Edit( Vector2 mousePosition, EditJob editJob ) { }
-    public void OnClickToolOptionButton() 
+    /*public void OnClickToolOptionButton() 
     {
         _detailUI.gameObject.SetActive( !_detailUI.gameObject.activeSelf );
-    }
+    }*/
 
     public float Size
     {

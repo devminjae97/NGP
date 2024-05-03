@@ -8,5 +8,4 @@ using UnityEngine.Tilemaps;
 public class CrackedBlockTest : MonoBehaviour
 {
     public float respawnTime;
-    public ETileType tileType;
 }

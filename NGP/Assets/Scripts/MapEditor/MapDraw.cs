@@ -111,21 +111,21 @@ public class MapDraw : MonoBehaviour
     {
         Vector3 pos;
         float respawnTime;
-        CrackedBlockTest crackedBlock;
+        GCrackedBlock crackedBlock;
 
         foreach (CrackedBlockInfo data in editorMapData.crackedBlock[0].infos)
         {
             pos = _tilemap.CellToWorld( (Vector3Int)data.pos ) + _distBetweenScene + new Vector3( _tileHalfSize, _tileHalfSize, 0 );
             respawnTime = data.respawnTime;
-            crackedBlock = Instantiate( _crackedBlock, pos, Quaternion.identity ).GetComponent<CrackedBlockTest>();
-            crackedBlock.respawnTime = respawnTime;
+            crackedBlock = Instantiate( _crackedBlock, pos, Quaternion.identity ).GetComponent<GCrackedBlock>();
+            crackedBlock.RespawnTime = respawnTime;
         }
         foreach (CrackedBlockInfo data in editorMapData.crackedBlock[1].infos)
         {
             pos = _tilemap.CellToWorld( (Vector3Int)data.pos ) + new Vector3( _tileHalfSize, _tileHalfSize, 0 );
             respawnTime = data.respawnTime;
-            crackedBlock = Instantiate( _crackedBlock, pos, Quaternion.identity ).GetComponent<CrackedBlockTest>();
-            crackedBlock.respawnTime = respawnTime;
+            crackedBlock = Instantiate( _crackedBlock, pos, Quaternion.identity ).GetComponent<GCrackedBlock>();
+            crackedBlock.RespawnTime = respawnTime;
         }
     }
 
@@ -133,7 +133,7 @@ public class MapDraw : MonoBehaviour
     {
         Vector3 pos;
         float respawnTime;
-        CrackedBlockTest crackedBlock;
+        GCrackedBlock crackedBlock;
         Tilemap tilemap1 = EditorManager.Instance.EditorTilemap[0];
         Tilemap tilemap2 = EditorManager.Instance.EditorTilemap[1];
 
@@ -141,16 +141,16 @@ public class MapDraw : MonoBehaviour
         {
             pos = tilemap1.CellToWorld( (Vector3Int)data.pos ) + new Vector3( _tileHalfSize, _tileHalfSize, 0 );
             respawnTime = data.respawnTime;
-            crackedBlock = Instantiate( _crackedBlock, pos, Quaternion.identity ).GetComponent<CrackedBlockTest>();
-            crackedBlock.respawnTime = respawnTime;
+            crackedBlock = Instantiate( _crackedBlock, pos, Quaternion.identity ).GetComponent<GCrackedBlock>();
+            crackedBlock.RespawnTime = respawnTime;
             crackedBlock.transform.parent = tilemap1.transform;
         }
         foreach (CrackedBlockInfo data in editorMapData.crackedBlock[1].infos)
         {
             pos = tilemap2.CellToWorld( (Vector3Int)data.pos ) + new Vector3( _tileHalfSize, _tileHalfSize, 0 );
             respawnTime = data.respawnTime;
-            crackedBlock = Instantiate( _crackedBlock, pos, Quaternion.identity ).GetComponent<CrackedBlockTest>();
-            crackedBlock.respawnTime = respawnTime;
+            crackedBlock = Instantiate( _crackedBlock, pos, Quaternion.identity ).GetComponent<GCrackedBlock>();
+            crackedBlock.RespawnTime = respawnTime;
             crackedBlock.transform.parent = tilemap2.transform;
         }
     }

@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 6054211902060536146}
   - component: {fileID: 6054211902060536156}
   - component: {fileID: 6054211902060536147}
-  - component: {fileID: 7639290213838507555}
+  - component: {fileID: 3260298088745681580}
   m_Layer: 0
   m_Name: CrackedGround
   m_TagString: CrackedBlock
@@ -105,7 +105,7 @@ Transform:
   m_GameObject: {fileID: 6054211902060536145}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.5, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -210,7 +210,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7639290213838507555
+--- !u!114 &3260298088745681580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,11 +219,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6054211902060536145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b06c4b5f9ad5cca4292e7eceee998fd0, type: 3}
+  m_Script: {fileID: 11500000, guid: b1fc155fe4b165842b0e8412cfc79b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnTime: 3
   tileType: 0
+  breakTime: 0.5
+  respawnTime: 2
 --- !u!1 &6362118173918739022
 GameObject:
   m_ObjectHideFlags: 0

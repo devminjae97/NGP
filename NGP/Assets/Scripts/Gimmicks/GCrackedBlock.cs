@@ -67,4 +67,16 @@ public class GCrackedBlock : GimmickBase
             Debug.Log("You are dead");
         }
     }
+
+    public float BreakTime
+    {
+        get { return breakTime; }
+        set { breakTime = value; }
+    }
+
+    public float RespawnTime
+    {
+        get { return respawnTime; }
+        set { respawnTime = value; }
+    }
 }

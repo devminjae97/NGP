@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EditorNone : EditorToolBase
 {
+    private DetailUI _currentDetailUI;
+
     private void Start()
     {
         InitComponent( 1 );
@@ -21,7 +23,7 @@ public class EditorNone : EditorToolBase
         (bool, RaycastHit2D) result = IsBlockedByObject( pos.x, pos.y );
 
         if (!result.Item1) return;
- 
+
         if (_editorController.SelectedCursors.ContainsKey( pos ))
         {
             Destroy( _editorController.SelectedCursors[pos].gameObject );
@@ -49,8 +51,11 @@ public class EditorNone : EditorToolBase
             case "Finish":
                 break;
             case "CrackedBlock":
+                if (_currentDetailUI != null) _currentDetailUI.gameObject.SetActive( false );
+                _currentDetailUI = _editorController.ButtonGroupByTileType[ETileType.eCrackedBlock];
+                _currentDetailUI.gameObject.SetActive( true );
                 _editorController.SetDetailUIActive( ETileType.eCrackedBlock, false );
-                _editorController.CrackedBlockButtonGroup.OnObjectClick( obj );
+                _editorController.CrackedBlockButtonGroup.SetUIInfo( obj );
                 break;
             default: 
                 break;
