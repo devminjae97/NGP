@@ -12,8 +12,8 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     private void Start()
     {
-        EditorManager.GetInstance().OnSceneChanged += Instance_OnSceneChanged;
-        _tilemap = EditorManager.GetInstance().CurrentEditorScene.tilemap;
+        EditorManager.Instance.OnSceneChanged += Instance_OnSceneChanged;
+        _tilemap = EditorManager.Instance.CurrentEditorScene.tilemap;
         _tileHalfSize = _tilemap.cellSize.x * 0.5f;
     }
 

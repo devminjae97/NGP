@@ -17,15 +17,6 @@ public class DetailUI : MonoBehaviour
     protected bool _isPointerDownTabBar;
     protected Vector3 _posGapMouseAndUI;
     protected bool _isOpen;
-    [SerializeField] protected TextMeshProUGUI _title;
-    [SerializeField] protected TextMeshProUGUI _currentValue;
-    [SerializeField] protected GameObject _textAreaObject;
-    protected TextMeshProUGUI _textArea;
-
-    private void Awake()
-    {
-        _textArea = _textAreaObject.GetComponentInChildren<TextMeshProUGUI>();
-    }
 
     private void Update()
     {
@@ -33,12 +24,6 @@ public class DetailUI : MonoBehaviour
         {
             gameObject.transform.position = Input.mousePosition + _posGapMouseAndUI;
         }
-    }
-
-    public void OnValueChange()
-    {
-        int value = int.Parse( _textArea.text.Substring( 0, _textArea.text.Length - 1 ) );
-        _currentValue.text = value.ToString();
     }
 
     public void OnPointerDownTabBar()
@@ -52,20 +37,17 @@ public class DetailUI : MonoBehaviour
         _isPointerDownTabBar = false;
     }
 
-    public void SetTitle( string titleToSet)
+    protected float ConvertStringToFloat( string str )
     {
-        _title.text = titleToSet;
+        return float.Parse( str );
     }
 
-    public void SetCurrentValueFloat( float value )
+    protected int ConvertStringToInt( string str )
     {
-        _currentValue.text = value.ToString();
+        return int.Parse( str );
     }
 
-    public void SetTextAreaVisibility( bool isVisible )
-    {
-        _textAreaObject.SetActive( isVisible );
-    }
+    public virtual void SetUIInfo( GameObject obj ) { }
 
     public bool IsOpen
     {

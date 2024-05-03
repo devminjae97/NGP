@@ -6,8 +6,6 @@ using UnityEngine.Tilemaps;
 
 public class EditorCrackedBlock : EditorToolBase
 {
-    [SerializeField] private GameObject _crackedBlockObject;
-
     private void Start()
     {
         InitComponent( 1 );
@@ -61,7 +59,7 @@ public class EditorCrackedBlock : EditorToolBase
                 }
             }
         }
-        DrawObject( _crackedBlockObject, pos, editJob );
+        DrawObject( _toolObject, pos, editJob );
     }
 
     public void OnClickCrackedBlockButton()
@@ -74,8 +72,6 @@ public class EditorCrackedBlock : EditorToolBase
     public void OnClickRespawnTimeButton()
     {
         OnClickToolOptionButton();
-        _detailUI.SetTextAreaVisibility( true );
-        _detailUI.SetTitle( "Respawn Time" );
         // 양성인 TODO: 스크립트에 따라 생성
         // _detailUI.SetCurrentValueFloat( _crackedBlockObject );
     }

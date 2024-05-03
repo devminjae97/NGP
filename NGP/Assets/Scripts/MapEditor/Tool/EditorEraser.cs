@@ -1,22 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
 
 public class EditorEraser : EditorToolBase
 {
+    public delegate void OnSizeChangedDelegate( int size );
+    public event OnSizeChangedDelegate OnSizeChanged;
+
     private void Start()
     {
         InitComponent( 1 );
     }
 
-    public override void SetSize( float val )
+    public override void AddSize( float val )
     {
         _size += val;
-        if (_size > _tileSize * 10) _size = _tileSize * 10;
+        if (_size > _maxSize) _size = _maxSize;
         else if (_size < _tileSize) _size = _tileSize;
         _selectCursor.transform.localScale = new Vector3( _size, _size, 0 );
+        OnSizeChanged?.Invoke( (int)_size );
+    }
+
+    public override void SetSize( float val )
+    {
+        _size = val;
+        if (_size > _maxSize) _size = _maxSize;
+        else if (_size < _tileSize) _size = _tileSize;
+        _selectCursor.transform.localScale = new Vector3( _size, _size, 0 );
+        OnSizeChanged?.Invoke( (int)_size );
     }
 
     public override void Edit( Vector2 mousePosition, EditJob editJob )
@@ -35,16 +49,15 @@ public class EditorEraser : EditorToolBase
                 TileBase curTile = _tilemap.GetTile( (Vector3Int)curPos );
                 if (curTile != null )
                 {
-                    editJob.TileByPos.Add( curPos, (curTile, null) );
+                    (editJob as EditJobEraser).TileByPos.Add( curPos, (curTile, null) );
                     _tilemap.SetTile( new Vector3Int( i, j, 0 ), null );
                 }
 
                 (bool, RaycastHit2D) result = IsBlockedByObject( i, j );
                 if (result.Item1 && result.Item2.transform.gameObject.activeSelf)
                 {
-                    //if (editJob.EraseObjects.ContainsKey( curPos )) continue;
-                    //editJob.EraseObjects.Add( curPos, result.Item2.transform.gameObject );
-                    editJob.EraseObjects.Add( result.Item2.transform.gameObject, curPos );
+                    (editJob as EditJobEraser).EraseObjects.Add( result.Item2.transform.gameObject, curPos );
+
                     result.Item2.transform.position = new Vector3( 100, 100 );
                     result.Item2.transform.gameObject.SetActive( false );
                 }

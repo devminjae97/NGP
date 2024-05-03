@@ -8,31 +8,19 @@ using UnityEngine.UI;
 
 public delegate void TilemapDelegate( EditorScene scene );
 
-public class EditorManager : MonoBehaviour
+public class EditorManager : Singleton<EditorManager>
 {
-    private static EditorManager instance;
-
     private EditorScene _currentScene;
     [SerializeField] private EditorScene[] _scene;
     [SerializeField] private Tilemap[] _tilemap;
     [SerializeField] private SpriteRenderer _selectCursor;
     [SerializeField] private List<GameObject> _deactivateUIOnButtonClick;
     [SerializeField] private DetailUI _detailUI;
-    private Button _currentEditorTool;
   
     public event TilemapDelegate OnSceneChanged;
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy( gameObject );
-        }
-
         _scene[0].tilemap = _tilemap[0];
         _scene[1].tilemap = _tilemap[1];
         _scene[0].cameraPos = new Vector3( 0, 0, -10 );
@@ -43,11 +31,6 @@ public class EditorManager : MonoBehaviour
         _scene[0].bottomLeft = new Vector2( -30, -30 );
         _scene[1].topRight = new Vector2( 30, 30 );
         _scene[1].bottomLeft = new Vector2( -30, -30 );
-    }
-
-    public static EditorManager GetInstance()
-    {
-        return instance;
     }
 
     public void SetScene(int i)
@@ -67,6 +50,16 @@ public class EditorManager : MonoBehaviour
             if (ui == null) continue;
             ui.SetActive( false );
         }
+    }
+
+    public void SetDetailUI( DetailUI detailUI )
+    {
+        if (_detailUI)
+        {
+            _detailUI.gameObject.SetActive( false );
+        }
+        _detailUI = detailUI;
+        detailUI.gameObject.SetActive( true );
     }
 
     public Tilemap[] EditorTilemap
@@ -96,11 +89,6 @@ public class EditorManager : MonoBehaviour
     public DetailUI DetailUI
     {
         get { return _detailUI; }
-    }
-
-    public Button CurrentEditorTool
-    {
-        get { return _currentEditorTool; }
-        set { _currentEditorTool = value; }
+        set { _detailUI = value; }
     }
 }

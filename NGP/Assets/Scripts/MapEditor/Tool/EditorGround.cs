@@ -21,6 +21,9 @@ public class EditorGround : EditorToolBase
 
     TileBase currentTile;
 
+    public delegate void OnSizeChangedDelegate( int size );
+    public event OnSizeChangedDelegate OnSizeChanged;
+
     private void Start()
     {
         InitComponent( 1 );
@@ -32,10 +35,22 @@ public class EditorGround : EditorToolBase
     {
         val *= _tileSize;
 
+        _size = val;
+        if (_size > _tileSize * 10) _size = _tileSize * 10;
+        else if (_size < _tileSize) _size = _tileSize;
+        _selectCursor.transform.localScale = new Vector3( _size, _size, 0 );
+        OnSizeChanged?.Invoke( (int)_size );
+    }
+
+    public override void AddSize( float val )
+    {
+        val *= _tileSize;
+
         _size += val;
         if (_size > _tileSize * 10) _size = _tileSize * 10;
         else if (_size < _tileSize) _size = _tileSize;
         _selectCursor.transform.localScale = new Vector3( _size, _size, 0 );
+        OnSizeChanged?.Invoke( (int)_size );
     }
 
     public override void SetCursorColor( Vector2 mousePosition, SpriteRenderer selectCursor )
@@ -65,8 +80,6 @@ public class EditorGround : EditorToolBase
         Vector3Int pos = _tilemap.WorldToCell( mousePosition );
         Vector2Int curPos;
 
-        editJob.JobType = EJobType.eSetTile;
-
         for (int i = pos.x - num; i <= pos.x + num + (isEven ? -1 : 0); i++)
         {
             for (int j = pos.y - num; j <= pos.y + num + (isEven ? -1 : 0); j++)
@@ -81,7 +94,7 @@ public class EditorGround : EditorToolBase
                 TileBase curTile = _tilemap.GetTile( (Vector3Int)curPos );
                 if (curTile != currentTile)
                 {
-                    editJob.TileByPos.Add( curPos, (curTile, currentTile) );
+                    (editJob as EditJobDrawingTile).TileByPos.Add( curPos, (curTile, currentTile) );
                     _tilemap.SetTile( new Vector3Int( i, j, 0 ), currentTile );
                 }
             }

@@ -19,7 +19,9 @@ public class EditorNone : EditorToolBase
     {
         Vector3Int pos = _tilemap.WorldToCell( mousePosition );
         (bool, RaycastHit2D) result = IsBlockedByObject( pos.x, pos.y );
+
         if (!result.Item1) return;
+ 
         if (_editorController.SelectedCursors.ContainsKey( pos ))
         {
             Destroy( _editorController.SelectedCursors[pos].gameObject );
@@ -45,6 +47,10 @@ public class EditorNone : EditorToolBase
             case "Respawn":
                 break;
             case "Finish":
+                break;
+            case "CrackedBlock":
+                _editorController.SetDetailUIActive( ETileType.eCrackedBlock, false );
+                _editorController.CrackedBlockButtonGroup.OnObjectClick( obj );
                 break;
             default: 
                 break;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 556645848097912172}
   - component: {fileID: 1162250166531098830}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: KillCollider
   m_TagString: Trap
   m_Icon: {fileID: 0}
@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnTime: 3
+  tileType: 0
 --- !u!1 &6362118173918739022
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4290761357536159057}
   - component: {fileID: 667463158421269278}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CreackedGroundCollider
   m_TagString: Ground
   m_Icon: {fileID: 0}

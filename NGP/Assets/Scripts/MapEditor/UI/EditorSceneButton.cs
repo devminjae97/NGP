@@ -16,6 +16,6 @@ public class EditorSceneButton : MonoBehaviour
 
     public void OnClickEditorSceneButton( int sceneNum )
     {
-        EditorManager.GetInstance().SetScene( sceneNum );
+        EditorManager.Instance.SetScene( sceneNum );
     }
 }

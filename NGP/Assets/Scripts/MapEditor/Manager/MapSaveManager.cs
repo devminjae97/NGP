@@ -5,10 +5,8 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class MapSaveManager : MonoBehaviour
+public class MapSaveManager : Singleton<MapSaveManager>
 {
-    private static MapSaveManager instance;
-
     // 양성인 TODO: Define 폴더의 파일에 옮겨야 함
     const string dataPath = "SaveData/EditorMapData.json";
 
@@ -20,22 +18,8 @@ public class MapSaveManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy( gameObject );
-        }
-
         _editorMapData = new EditorMapData();
         _tilemap = new Tilemap[2];
-    }
-
-    public static MapSaveManager GetInstance()
-    {
-        return instance;
     }
 
     public void SaveDataToContainer()
@@ -47,9 +31,9 @@ public class MapSaveManager : MonoBehaviour
 
     void SaveTile()
     {
-        _tilemap = EditorManager.GetInstance().EditorTilemap;
-        _bottomLeft = EditorManager.GetInstance().EditorScene[0].bottomLeft;
-        _topRight = EditorManager.GetInstance().EditorScene[0].topRight;
+        _tilemap = EditorManager.Instance.EditorTilemap;
+        _bottomLeft = EditorManager.Instance.EditorScene[0].bottomLeft;
+        _topRight = EditorManager.Instance.EditorScene[0].topRight;
 
         SaveTileAtScene( 0 );
         SaveTileAtScene( 1 );
@@ -83,7 +67,7 @@ public class MapSaveManager : MonoBehaviour
 
     void SaveGimmickAtScene( int sceneNum )
     {
-        foreach (Transform child in EditorManager.GetInstance().EditorTilemap[sceneNum].transform)
+        foreach (Transform child in EditorManager.Instance.EditorTilemap[sceneNum].transform)
         {
             switch (child.tag)
             {

@@ -20,13 +20,13 @@ public class MapDraw : MonoBehaviour
 
     private void Start()
     {
-        if (MapLoadManager.GetInstance().TilemapToLoad != null)
+        if (MapLoadManager.Instance.TilemapToLoad != null)
         {
-            _tilemap = MapLoadManager.GetInstance().TilemapToLoad;
+            _tilemap = MapLoadManager.Instance.TilemapToLoad;
         }
         else
         {
-            _tilemap = EditorManager.GetInstance().EditorTilemap[0];
+            _tilemap = EditorManager.Instance.EditorTilemap[0];
         }
         _tileSize = _tilemap.cellSize.x;
         _tileHalfSize = _tileSize * 0.5f;
@@ -53,8 +53,8 @@ public class MapDraw : MonoBehaviour
 
     public void DrawNormalGroundAtEditor( EditorMapData editorMapData )
     {
-        Tilemap tilemap1 = EditorManager.GetInstance().EditorTilemap[0];
-        Tilemap tilemap2 = EditorManager.GetInstance().EditorTilemap[1];
+        Tilemap tilemap1 = EditorManager.Instance.EditorTilemap[0];
+        Tilemap tilemap2 = EditorManager.Instance.EditorTilemap[1];
         tilemap1.ClearAllTiles();
         tilemap2.ClearAllTiles();
 
@@ -89,8 +89,8 @@ public class MapDraw : MonoBehaviour
     {
         Vector3 startPos;
         Vector3 goalPos;
-        Tilemap tilemap1 = EditorManager.GetInstance().EditorTilemap[0];
-        Tilemap tilemap2 = EditorManager.GetInstance().EditorTilemap[1];
+        Tilemap tilemap1 = EditorManager.Instance.EditorTilemap[0];
+        Tilemap tilemap2 = EditorManager.Instance.EditorTilemap[1];
 
         startPos = tilemap1.CellToWorld( (Vector3Int)editorMapData.flag[0].startFlagPos ) + new Vector3( _tileHalfSize, _tileHalfSize, 0 );
         goalPos = tilemap1.CellToWorld( (Vector3Int)editorMapData.flag[0].goalFlagPos ) + new Vector3( _tileHalfSize, _tileHalfSize, 0 );
@@ -134,8 +134,8 @@ public class MapDraw : MonoBehaviour
         Vector3 pos;
         float respawnTime;
         CrackedBlockTest crackedBlock;
-        Tilemap tilemap1 = EditorManager.GetInstance().EditorTilemap[0];
-        Tilemap tilemap2 = EditorManager.GetInstance().EditorTilemap[1];
+        Tilemap tilemap1 = EditorManager.Instance.EditorTilemap[0];
+        Tilemap tilemap2 = EditorManager.Instance.EditorTilemap[1];
 
         foreach (CrackedBlockInfo data in editorMapData.crackedBlock[0].infos)
         {
