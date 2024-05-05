@@ -26,6 +26,8 @@ public class CharacterMovement : MonoBehaviour
 
     private bool _isSinking = false;
     private bool _isControllable = false;
+    private bool _isReversed = false;
+    private bool _isJumping = false;
 
     void Awake()
     {
@@ -45,6 +47,9 @@ public class CharacterMovement : MonoBehaviour
         _swampLayer = LayerMask.GetMask("Swamp");
 
         _isControllable = true;
+        _isSinking = false;
+        _isReversed = false;
+        _isJumping = false;
     }
 
     void FixedUpdate()
@@ -59,14 +64,25 @@ public class CharacterMovement : MonoBehaviour
     void Move()
     {
         Vector2 movement = _moveInput * _moveSpeed * Time.fixedDeltaTime;
-        if (IsOnGround() && !IsOnIce() && !IsOnSwamp()) //땅위에서
+        if (_isReversed)
+        {
+            movement.y *= -1; // Reverse vertical movement
+        }
+        else if(!_isReversed)
+        {
+            movement.y *= 1;
+            _groundCheckBoxSize.y *= 1;
+            _groundCheckCastDistance *= 1;
+        }
+
+        if (IsOnGround() && !IsOnIce() && !IsOnSwamp()) // On Ground
         {
             if (_rigidbody.velocity.x < _groundVelocity && -_rigidbody.velocity.x < _groundVelocity)
                 _rigidbody.AddForce(movement * _additionalForce, ForceMode2D.Force);
 
             _isSinking = false;
         }
-        else if (!IsOnGround() && IsOnIce() && !IsOnSwamp()) //얼음위에서
+        else if (!IsOnGround() && IsOnIce() && !IsOnSwamp()) // On Ice
         {
             Vector2 iceMovement = new Vector2(_rigidbody.velocity.x * _iceVelocity, 0);
             if (_rigidbody.velocity.x < _iceVelocity && -_rigidbody.velocity.x < _iceVelocity)
@@ -74,10 +90,10 @@ public class CharacterMovement : MonoBehaviour
 
             _isSinking = false;
         }
-        else if(!IsOnGround() && !IsOnIce() && IsOnSwamp()) //늪위에서
+        else if (!IsOnGround() && !IsOnIce() && IsOnSwamp()) // On Swamp
         {
             if (_rigidbody.velocity.x < _swampVelocity && -_rigidbody.velocity.x < _swampVelocity)
-                _rigidbody.AddForce(movement*_additionalForce, ForceMode2D.Force);
+                _rigidbody.AddForce(movement * _additionalForce, ForceMode2D.Force);
 
             _isSinking = true;
         }
@@ -92,14 +108,25 @@ public class CharacterMovement : MonoBehaviour
     {
         if ((IsOnGround() || IsOnIce()) && value.isPressed && _isControllable)
         {
-            _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            float jumpForce = _isReversed ? -_jumpForce : _jumpForce; // Reverse jump force if needed
+            _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-        else if(IsOnSwamp() && value.isPressed && _isControllable)
+        else if (IsOnSwamp() && value.isPressed && _isControllable)
         {
-            _rigidbody.AddForce(Vector2.up * _swampJumpForce, ForceMode2D.Impulse);
+            float swampJumpForce = _isReversed ? -_swampJumpForce : _swampJumpForce; // Reverse jump force if needed
+            _rigidbody.AddForce(Vector2.up * swampJumpForce, ForceMode2D.Impulse);
         }
     }
 
+    public void Reverse()
+    {
+        _isReversed = !_isReversed;
+        transform.localScale = new Vector3(1, _isReversed ? -1 : 1, 1);
+        _rigidbody.gravityScale *= -1;
+
+        _groundCheckBoxSize.y *= -1;
+        _groundCheckCastDistance *= -1;
+    }
 
     #region Set() >>>>
 

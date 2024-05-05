@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class GMovingBlock : GimmickBase
 {
-
-    [SerializeField] protected float speed = 5.0f;
-    [SerializeField] protected float minX = 0.0f;
-    [SerializeField] protected float maxX = 0.0f;
-    [SerializeField] protected float minY = 0.0f;
-    [SerializeField] protected float maxY = 0.0f;
-    [SerializeField] protected float movingDistanceX = 10.0f;
-    [SerializeField] protected float movingDistanceY = 10.0f;
-    [SerializeField] protected bool IsHorizontal = false;
+    [SerializeField] protected float _speed = 5.0f;
+    [SerializeField] protected float _minX = 0.0f;
+    [SerializeField] protected float _maxX = 0.0f;
+    [SerializeField] protected float _minY = 0.0f;
+    [SerializeField] protected float _maxY = 0.0f;
+    [SerializeField] protected float _movingDistanceX = 10.0f;
+    [SerializeField] protected float _movingDistanceY = 10.0f;
+    [SerializeField] protected bool _IsHorizontal = false;
 
     private bool _movingRight = true;
     private bool _movingUp = true;
@@ -40,7 +39,7 @@ public class GMovingBlock : GimmickBase
 
     void Update()
     {
-        if(IsHorizontal)
+        if(_IsHorizontal)
         {
             MovingX();
         }
@@ -52,33 +51,33 @@ public class GMovingBlock : GimmickBase
 
     private void InitializeValue()
     {
-        if (IsHorizontal)
+        if (_IsHorizontal)
         {
-            minX = _initPos.x;
-            maxX = minX + movingDistanceX;
+            _minX = _initPos.x;
+            _maxX = _minX + _movingDistanceX;
         }
         else
         {
-            minY = _initPos.y;
-            maxY = minY + movingDistanceY;
+            _minY = _initPos.y;
+            _maxY = _minY + _movingDistanceY;
         }
     }
     private void MovingX()
     {
         if (_movingRight)
         {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            transform.Translate(Vector2.right * _speed * Time.deltaTime);
         }
         else
         {
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            transform.Translate(Vector2.left * _speed * Time.deltaTime);
         }
 
-        if (transform.position.x >= maxX)
+        if (transform.position.x >= _maxX)
         {
             _movingRight = false;
         }
-        else if (transform.position.x <= minX)
+        else if (transform.position.x <= _minX)
         {
             _movingRight = true;
         }
@@ -88,18 +87,18 @@ public class GMovingBlock : GimmickBase
     {
         if (_movingUp)
         {
-            transform.Translate(Vector2.up * speed * Time.deltaTime);
+            transform.Translate(Vector2.up * _speed * Time.deltaTime);
         }
         else
         {
-            transform.Translate(Vector2.down * speed * Time.deltaTime);
+            transform.Translate(Vector2.down * _speed * Time.deltaTime);
         }
 
-        if (transform.position.x >= maxY)
+        if (transform.position.x >= _maxY)
         {
             _movingUp = false;
         }
-        else if (transform.position.x <= minY)
+        else if (transform.position.x <= _minY)
         {
             _movingUp = true;
         }

@@ -7,7 +7,6 @@ public class GCrackedBlock : GimmickBase
     [SerializeField] protected float breakTime = 0.5f; //Time until Break
     [SerializeField] protected float respawnTime = 2f;
 
-    private bool _isCracked = false;
     private Renderer _blockRenderer;
     private Collider2D[] _colliders;
     private Vector2 _initPos;
@@ -23,13 +22,21 @@ public class GCrackedBlock : GimmickBase
         transform.position = _initPos;
     }
 
-    private void Awake()
+    protected override void Initialize()
     {
-        _initPos = transform.position;
-        _blockRenderer = GetComponent<Renderer>();
-        _colliders = GetComponents<Collider2D>();
-    }
+        base.Initialize();
 
+        _initPos = transform.position;
+        if (TryGetComponent<Renderer>(out Renderer blockRenderer))
+        {
+            _blockRenderer = blockRenderer;
+        }
+        if (TryGetComponent<Collider2D[]>(out Collider2D[] collider))
+        {
+            _colliders = collider;
+        }
+    }
+   
     IEnumerator RespawnBlock()
     {
         yield return new WaitForSeconds(breakTime);
