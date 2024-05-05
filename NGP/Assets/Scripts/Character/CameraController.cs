@@ -5,8 +5,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] protected float _cameraMoveSpeed = 5f;
     [SerializeField] protected float _followDelay = 0.5f;
-    [SerializeField] protected Transform _target;
-    [SerializeField] protected CharacterMovement _characterMovement;
+    [SerializeField] protected CharacterMovement _target;
 
     private Vector3 _defaultCameraPosition = new Vector3(0.0f, 0.0f, -10f);
     private Vector3 _targetPosition;
@@ -16,10 +15,9 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        _characterMovement = FindObjectOfType<CharacterMovement>();
         if (_target != null)
         {
-            transform.position = _target.position + _defaultCameraPosition;
+            transform.position = _target.transform.position + _defaultCameraPosition;
             _isActive = true;
         }
     }
@@ -28,7 +26,7 @@ public class CameraController : MonoBehaviour
     {
         if (_isActive)
         {
-            if (_characterMovement.IsPlayerStopped() && IsUsing())
+            if (_target.IsPlayerStopped() && IsUsing())
                 MoveCameraWithInput();
             else
                 FollowPlayer();
@@ -52,14 +50,13 @@ public class CameraController : MonoBehaviour
         if (_target != null)
         {
             // 플레이어를 중심으로 카메라 이동
-            _targetPosition = new Vector3(_target.position.x, _target.position.y, transform.position.z);
+            _targetPosition = new Vector3(_target.transform.position.x, _target.transform.position.y, transform.position.z);
             transform.position = Vector3.SmoothDamp(transform.position, _targetPosition, ref _velocity, _followDelay);
         }
     }
 
-    void MoveCameraWithInput()
+    void MoveCameraWithInput() //Move Camera Sight by WASD
     {
-        // WASD 입력을 받아 카메라 이동
         Vector2 moveInput = GetInput();
         Vector3 moveDirection = new Vector3(moveInput.x, moveInput.y, 0f).normalized;
         transform.position += moveDirection * _cameraMoveSpeed * Time.deltaTime;

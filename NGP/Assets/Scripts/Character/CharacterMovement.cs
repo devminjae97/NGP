@@ -27,7 +27,7 @@ public class CharacterMovement : MonoBehaviour
     private bool _isSinking = false;
     private bool _isControllable = false;
     private bool _isReversed = false;
-    private bool _isJumping = false;
+    //private bool _isJumping = false;
 
     void Awake()
     {
@@ -37,7 +37,11 @@ public class CharacterMovement : MonoBehaviour
     private void InitializeValues()
     {
         //_initPos = transform.position;
-        _rigidbody = GetComponent<Rigidbody2D>();
+        if(TryGetComponent<Rigidbody2D>(out Rigidbody2D rigidbody))
+        {
+            _rigidbody = rigidbody;
+        }
+
         _groundCheckBoxSize = new Vector2(0.45f, 0.1f);
         _groundCheckCastDistance = 0.95f;
 
@@ -49,7 +53,7 @@ public class CharacterMovement : MonoBehaviour
         _isControllable = true;
         _isSinking = false;
         _isReversed = false;
-        _isJumping = false;
+       // _isJumping = false;
     }
 
     void FixedUpdate()
@@ -64,15 +68,10 @@ public class CharacterMovement : MonoBehaviour
     void Move()
     {
         Vector2 movement = _moveInput * _moveSpeed * Time.fixedDeltaTime;
+
         if (_isReversed)
         {
             movement.y *= -1; // Reverse vertical movement
-        }
-        else if(!_isReversed)
-        {
-            movement.y *= 1;
-            _groundCheckBoxSize.y *= 1;
-            _groundCheckCastDistance *= 1;
         }
 
         if (IsOnGround() && !IsOnIce() && !IsOnSwamp()) // On Ground
@@ -97,6 +96,15 @@ public class CharacterMovement : MonoBehaviour
 
             _isSinking = true;
         }
+
+        if (_isReversed)
+        {
+            if (IsOnGround())
+            {
+                Debug.Log("hi");
+
+            }
+        }
     }
 
     public void OnMove(InputValue value)
@@ -106,15 +114,14 @@ public class CharacterMovement : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
+        Vector2 direction = _isReversed ? - Vector2.down : Vector2.up;
         if ((IsOnGround() || IsOnIce()) && value.isPressed && _isControllable)
         {
-            float jumpForce = _isReversed ? -_jumpForce : _jumpForce; // Reverse jump force if needed
-            _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
         else if (IsOnSwamp() && value.isPressed && _isControllable)
         {
-            float swampJumpForce = _isReversed ? -_swampJumpForce : _swampJumpForce; // Reverse jump force if needed
-            _rigidbody.AddForce(Vector2.up * swampJumpForce, ForceMode2D.Impulse);
+          _rigidbody.AddForce(direction * _swampJumpForce, ForceMode2D.Impulse);
         }
     }
 
@@ -157,24 +164,29 @@ public class CharacterMovement : MonoBehaviour
 
     #region IsOnLayer() >>>>
 
+    private bool IsOnSurface(LayerMask layer)
+    {
+        return Physics2D.BoxCast(transform.position, _groundCheckBoxSize, 0, -transform.up, _groundCheckCastDistance, layer);
+    }
+
     public bool IsOnGround()
     {
-        return Physics2D.BoxCast(transform.position, _groundCheckBoxSize, 0, -transform.up, _groundCheckCastDistance, _groundLayer);
+        return IsOnSurface(_groundLayer);
     }
 
     public bool IsOnIce()
     {
-        return Physics2D.BoxCast(transform.position, _groundCheckBoxSize, 0, -transform.up, _groundCheckCastDistance, _iceLayer);
+        return IsOnSurface(_iceLayer);
     }
 
     public bool IsOnGoal()
     {
-        return Physics2D.BoxCast(transform.position, _groundCheckBoxSize, 0, -transform.up, _groundCheckCastDistance, _goalLayer);
+        return IsOnSurface(_goalLayer);
     }
 
     public bool IsOnSwamp()
     {
-        return Physics2D.BoxCast(transform.position, _groundCheckBoxSize, 0, -transform.up, _groundCheckCastDistance, _swampLayer);
+        return IsOnSurface(_swampLayer);
     }
 
     private void InitLayer()
@@ -189,8 +201,11 @@ public class CharacterMovement : MonoBehaviour
 
     public void OnDrawGizmos()
     {
-        // 박스 캐스트의 시작점과 크기 그리기
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube((Vector2)transform.position - new Vector2(0, _groundCheckCastDistance), _groundCheckBoxSize * 2);
+
+        Vector3 castPosition = transform.position - Vector3.up * _groundCheckCastDistance;
+        Vector3 boxSize = new Vector3(_groundCheckBoxSize.x, _groundCheckBoxSize.y, 0);
+
+        Gizmos.DrawWireCube(castPosition, boxSize);
     }
 }

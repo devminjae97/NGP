@@ -443,8 +443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1fc155fe4b165842b0e8412cfc79b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakTime: 0.5
-  respawnTime: 2
+  _breakTime: 500
+  _respawnTime: 2000
 --- !u!61 &519760721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 632485103}
   - component: {fileID: 632485104}
   m_Layer: 0
-  m_Name: MC1
+  m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,7 +697,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 1738109380, guid: 1a354f17d8c231b4793660b2b16976ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 1036503102}
   - component: {fileID: 1036503101}
   m_Layer: 0
-  m_Name: MC2
+  m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1151,8 +1151,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 1738109380, guid: 1a354f17d8c231b4793660b2b16976ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1419,8 +1419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraMoveSpeed: 5
   _followDelay: 0.5
-  _target: {fileID: 632485101}
-  _characterMovement: {fileID: 0}
+  _target: {fileID: 632485104}
 --- !u!1 &1177631627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,7 +1499,7 @@ Transform:
   m_GameObject: {fileID: 1177631627}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.93, y: -9.58, z: 0}
+  m_LocalPosition: {x: -28.93, y: -13.34, z: 0}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1563,14 +1562,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ab19ed00217fb4d9de71e39e66e319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  minX: 0
-  maxX: 0
-  minY: 0
-  maxY: 0
-  movingDistanceX: 10
-  movingDistanceY: 10
-  IsHorizontal: 1
+  _speed: 5
+  _minX: 0
+  _maxX: 0
+  _minY: 0
+  _maxY: 0
+  _movingDistanceX: 10
+  _movingDistanceY: 0
+  _IsHorizontal: 1
 --- !u!1 &1195099620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,8 +1810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraMoveSpeed: 5
   _followDelay: 0.5
-  _target: {fileID: 1036503106}
-  _characterMovement: {fileID: 0}
+  _target: {fileID: 1036503101}
 --- !u!1 &1509579792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,7 +2400,7 @@ GameObject:
   - component: {fileID: 1879676630}
   - component: {fileID: 1879676629}
   m_Layer: 0
-  m_Name: Master
+  m_Name: CCManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2420,6 +2418,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06dd9d4e4e6df6143a36c22c7671568b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _charcter1: {fileID: 632485104}
+  _charcter2: {fileID: 1036503101}
+  _camera1: {fileID: 1066863314}
+  _camera2: {fileID: 1502251889}
 --- !u!4 &1879676630
 Transform:
   m_ObjectHideFlags: 0
