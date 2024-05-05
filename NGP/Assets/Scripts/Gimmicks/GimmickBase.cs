@@ -7,8 +7,15 @@ public abstract class GimmickBase : MonoBehaviour
      * 다른 요소와 헷깔리지 않기 위해 GimmickBase를 상속받는 클래스는 G를 붙입니다.
      * (e.g., Button)
      */
+
+    #region Serialize Field >>>>
+
+    [SerializeField] private bool _activateOnPhaseStart = false;
+    public bool ActivateOnPhaseStart => _activateOnPhaseStart;
+
+    #endregion
     
-    // DO NOT use this variable directly.
+    /** CAUTION: DO NOT use this variable directly. */
     private bool _isActivated = false;
     public bool IsActivated 
     {
@@ -24,6 +31,10 @@ public abstract class GimmickBase : MonoBehaviour
         }
     }
 
+    public bool IsPaused { get; private set; } = false;
+
+    public bool IsWorking => IsActivated && IsPaused;
+
     public virtual void Activate()
     { 
         IsActivated = true;
@@ -34,6 +45,16 @@ public abstract class GimmickBase : MonoBehaviour
         IsActivated = false;
     }
     
+    public virtual void Pause()
+    {
+        IsPaused = true;
+    }
+
+    public virtual void Resume()
+    {
+        IsPaused = false;
+    }
+    
     public virtual void Reset()
     {
         Deactivate();
@@ -42,11 +63,17 @@ public abstract class GimmickBase : MonoBehaviour
     protected virtual void Initialize()
     {
         Reset();
+        RegisterToManager();
     }
     
     protected virtual void Deinitialize()
     {
         Reset();
+    }
+
+    private void RegisterToManager()
+    {
+        GimmickManager.Instance.RegisterGimmick(this);
     }
     
     #region ID >>>>
@@ -70,9 +97,7 @@ public abstract class GimmickBase : MonoBehaviour
     public delegate void OnStateChangedDelegate(GimmickBase gimmick, bool inIsActivated);
 
     public OnStateChangedDelegate OnStateChanged;
-    //protected OnStateChangedDelegate _onStateChanged;
-    //public OnStateChangedDelegate OnStateChanged => _onStateChanged;
-
+    
     #endregion Delegates >>>>
     
     
@@ -82,9 +107,6 @@ public abstract class GimmickBase : MonoBehaviour
     {
         _uid = GetNewGimmickUID();
         Initialize();
-        
-        // Test
-        Debug.Log($"[{this.name}] uid: {_uid}");
     }
     
     protected void OnDestroy()
