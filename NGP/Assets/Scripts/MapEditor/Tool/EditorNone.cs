@@ -47,8 +47,11 @@ public class EditorNone : EditorToolBase
         switch (obj.tag)
         {
             case "Respawn":
-                break;
             case "Finish":
+                if (_currentDetailUI != null) _currentDetailUI.gameObject.SetActive( false );
+                _currentDetailUI = _editorController.ButtonGroupByTileType[ETileType.eFlag];
+                _currentDetailUI.gameObject.SetActive( true );
+                _editorController.SetDetailUIActive( ETileType.eFlag, false );
                 break;
             case "CrackedBlock":
                 if (_currentDetailUI != null) _currentDetailUI.gameObject.SetActive( false );

@@ -36,7 +36,7 @@ public class EditorController : MonoBehaviour
     [SerializeField] private DetailUINormalBlock _groundButtonGroup;
     [SerializeField] private DetailUIEraser _eraserButtonGroup;
     [SerializeField] private DetailUICrackedBlock _crackedBlockButtonGroup;
-    //[SerializeField] private DetailUIFlag _flagButtonGroup;
+    [SerializeField] private DetailUIFlag _flagButtonGroup;
     private GameObject _draggingObject;
     private Vector3 _draggingObjectInitPos;
 
@@ -45,6 +45,9 @@ public class EditorController : MonoBehaviour
 
     private EditorToolBase _tool;
     private EditJob _editJob;
+
+    private Vector2 topRight;
+    private Vector2 bottomLeft;
 
     private Dictionary<Vector3Int, SpriteRenderer> _selectedCursors;
 
@@ -56,7 +59,7 @@ public class EditorController : MonoBehaviour
             { ETileType.eGround, _groundButtonGroup },
             { ETileType.eEraser, _eraserButtonGroup },
             { ETileType.eCrackedBlock, _crackedBlockButtonGroup },
-            //{ ETileType.eFlag, _flagButtonGroup },
+            { ETileType.eFlag, _flagButtonGroup },
         };
 
         foreach (DetailUI group in _buttonGroupByTileType.Values)
@@ -75,6 +78,8 @@ public class EditorController : MonoBehaviour
         _tileSize = _tilemap.cellSize.x;
         _tileHalfSize = _tileSize * 0.5f;
         _selectedCursors = new Dictionary<Vector3Int, SpriteRenderer>();
+        topRight = EditorManager.Instance.CurrentEditorScene.topRight;
+        bottomLeft = EditorManager.Instance.CurrentEditorScene.bottomLeft;
     }
 
     void Update()
@@ -84,6 +89,7 @@ public class EditorController : MonoBehaviour
         Edit();
         DragDrop();
         MoveCursor();
+        SetFOV();
         DragView();
         UndoRedo();
     }
@@ -93,7 +99,7 @@ public class EditorController : MonoBehaviour
         if (_currentTileType == ETileType.eNone) return;
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
-
+       
         if ((_tool.Size / _tileSize) % 2 == 1)
         {
             _selectCursor.transform.position = GetCursorCellPosition( mousePosition );
@@ -105,9 +111,16 @@ public class EditorController : MonoBehaviour
         }
     }
 
+    private void SetFOV()
+    {
+        float wheelInput = Input.GetAxis( "Mouse ScrollWheel" );
+        _mainCamera.orthographicSize = Mathf.Clamp( _mainCamera.orthographicSize - wheelInput * 1.5f, 4, 10 );
+    }
+
     private void DragDrop()
     {
-        if (_currentTileType != ETileType.eNone) return;
+        if (_currentTileType != ETileType.eNone) return; 
+
         if (Input.GetMouseButtonDown( 0 ))
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
@@ -147,7 +160,13 @@ public class EditorController : MonoBehaviour
             {
                 _draggingObject.transform.position = _draggingObjectInitPos;
                 _draggingObject.layer = 0;
-                return;
+                isDragging = false;
+                _draggingObject = null;
+                if (_editJob)
+                {
+                    Destroy( _editJob );
+                    return;
+                }
             }
             
             _draggingObject.transform.position = posToSet;
@@ -171,6 +190,10 @@ public class EditorController : MonoBehaviour
     private void Edit()
     {
         if (_tool == null) return;
+
+        Vector3Int cursorCellPos = _tilemap.WorldToCell( Camera.main.ScreenToWorldPoint( Input.mousePosition ) );
+        if (cursorCellPos.x > topRight.x - 1 || cursorCellPos.y > topRight.y - 1 || cursorCellPos.x < bottomLeft.x || cursorCellPos.y < bottomLeft.y) return;
+
         if (_currentTileType == ETileType.eNone)
         {
             if (Input.GetMouseButtonDown( 0 ))
@@ -213,6 +236,7 @@ public class EditorController : MonoBehaviour
             case ETileType.eGround:
                 _editJob = gameObject.AddComponent<EditJobDrawingTile>();
                 break;
+            case ETileType.eFlag:
             case ETileType.eCrackedBlock:
                 _editJob = gameObject.AddComponent<EditJobObjectPos>();
                 break;
@@ -343,6 +367,12 @@ public class EditorController : MonoBehaviour
         }
         
         if (_tilemap.GetTile( _tilemap.WorldToCell( new Vector3( x, y ) ) ) != null)
+        {
+            return false;
+        }
+
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+        if (mousePosition.x > topRight.x || mousePosition.y > topRight.y || mousePosition.x < bottomLeft.x || mousePosition.y < bottomLeft.y)
         {
             return false;
         }
