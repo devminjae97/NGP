@@ -49,22 +49,6 @@ public class GimmickManager : Singleton<GimmickManager>
         }
     }
     
-    public void PauseAllGimmicks()
-    {
-        foreach (var gimmick in _gimmicks)
-        {
-            gimmick.Pause();
-        }
-    }
-    
-    public void ResumeAllGimmicks()
-    {
-        foreach (var gimmick in _gimmicks)
-        {
-            gimmick.Resume();
-        }
-    }
-    
     private void Awake()
     {
         dontDestroy = false;
