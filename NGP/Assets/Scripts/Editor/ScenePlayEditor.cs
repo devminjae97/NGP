@@ -6,7 +6,7 @@ using UnityEditor.SceneManagement;
 public class ScenePlayEditor : Editor
 
 {
-    [MenuItem("Edit/PlaySplash %O")]
+    [MenuItem("Edit/PlaySplash %#&P")]
     private static void PlaySplash()
     {
         EditorSceneManager.OpenScene("Assets/Scenes/SplashScene.unity");
