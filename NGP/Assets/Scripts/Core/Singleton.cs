@@ -10,6 +10,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static bool _shutdown = false;
     private static object _lock = new Object();
+
+    protected static bool dontDestroy = true;
     
     private static T _instance;
     public static T Instance
@@ -31,8 +33,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                         var go = new GameObject();
                         _instance = go.AddComponent<T>();
                         go.name = typeof(T).ToString() + " (Singleton)";
-                    
-                        DontDestroyOnLoad(go);
+                        
+                        if (dontDestroy)
+                        {
+                            DontDestroyOnLoad(go);
+                        }
                     }
                 }
                 return _instance;
@@ -47,7 +52,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         _shutdown = true;
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         _shutdown = true;
     }
