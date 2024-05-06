@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CharacterMovement : MonoBehaviour
@@ -17,6 +17,8 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] protected LayerMask _goalLayer;
     [SerializeField] protected LayerMask _swampLayer;
 
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
     private Vector2 _moveInput;
 
@@ -27,7 +29,7 @@ public class CharacterMovement : MonoBehaviour
     private bool _isSinking = false;
     private bool _isControllable = false;
     private bool _isReversed = false;
-    //private bool _isJumping = false;
+    private bool _isJumping = false;
 
     void Awake()
     {
@@ -37,11 +39,19 @@ public class CharacterMovement : MonoBehaviour
     private void InitializeValues()
     {
         //_initPos = transform.position;
-        if(TryGetComponent<Rigidbody2D>(out Rigidbody2D rigidbody))
+        if(TryGetComponent<Rigidbody2D>(out var rigidbody))
         {
             _rigidbody = rigidbody;
         }
 
+        if (TryGetComponent<SpriteRenderer>(out var spriteRenderer))
+        {
+            _spriteRenderer = spriteRenderer;
+        }
+        if (TryGetComponent<Animator>(out var animator))
+        {
+            _animator = animator;
+        }
         _groundCheckBoxSize = new Vector2(0.45f, 0.1f);
         _groundCheckCastDistance = 0.95f;
 
@@ -53,7 +63,6 @@ public class CharacterMovement : MonoBehaviour
         _isControllable = true;
         _isSinking = false;
         _isReversed = false;
-       // _isJumping = false;
     }
 
     void FixedUpdate()
@@ -61,14 +70,21 @@ public class CharacterMovement : MonoBehaviour
         if (_isControllable)
         {
             Move();
-            InitLayer();
         }
     }
 
     void Move()
     {
         Vector2 movement = _moveInput * _moveSpeed * Time.fixedDeltaTime;
-
+        _animator.SetFloat("moveInput", _moveInput.x);
+        if (_moveInput.x == 1.0f)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else if(_moveInput.x == -1.0f)
+        {
+            _spriteRenderer.flipX = true;
+        }
         if (_isReversed)
         {
             movement.y *= -1; // Reverse vertical movement
@@ -76,34 +92,31 @@ public class CharacterMovement : MonoBehaviour
 
         if (IsOnGround() && !IsOnIce() && !IsOnSwamp()) // On Ground
         {
-            if (_rigidbody.velocity.x < _groundVelocity && -_rigidbody.velocity.x < _groundVelocity)
+            if (_rigidbody.velocity.x < _groundVelocity && _rigidbody.velocity.x > -_groundVelocity)
+            {
                 _rigidbody.AddForce(movement * _additionalForce, ForceMode2D.Force);
+            }
 
             _isSinking = false;
         }
         else if (!IsOnGround() && IsOnIce() && !IsOnSwamp()) // On Ice
         {
             Vector2 iceMovement = new Vector2(_rigidbody.velocity.x * _iceVelocity, 0);
-            if (_rigidbody.velocity.x < _iceVelocity && -_rigidbody.velocity.x < _iceVelocity)
+            if (_rigidbody.velocity.x < _iceVelocity && _rigidbody.velocity.x > -_iceVelocity)
+            {
                 _rigidbody.AddForce(iceMovement, ForceMode2D.Force);
+            }
 
             _isSinking = false;
         }
         else if (!IsOnGround() && !IsOnIce() && IsOnSwamp()) // On Swamp
         {
             if (_rigidbody.velocity.x < _swampVelocity && -_rigidbody.velocity.x < _swampVelocity)
+            {
                 _rigidbody.AddForce(movement * _additionalForce, ForceMode2D.Force);
+            }
 
             _isSinking = true;
-        }
-
-        if (_isReversed)
-        {
-            if (IsOnGround())
-            {
-                Debug.Log("hi");
-
-            }
         }
     }
 
@@ -114,24 +127,23 @@ public class CharacterMovement : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        Vector2 direction = _isReversed ? - Vector2.down : Vector2.up;
+        Vector2 direction = _isReversed ? Vector2.down : Vector2.up;
         if ((IsOnGround() || IsOnIce()) && value.isPressed && _isControllable)
         {
-            _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            _rigidbody.AddForce(direction * _jumpForce, ForceMode2D.Impulse);
         }
         else if (IsOnSwamp() && value.isPressed && _isControllable)
         {
-          _rigidbody.AddForce(direction * _swampJumpForce, ForceMode2D.Impulse);
+            _rigidbody.AddForce(direction * _swampJumpForce, ForceMode2D.Impulse);
         }
     }
 
     public void Reverse()
     {
         _isReversed = !_isReversed;
-        transform.localScale = new Vector3(1, _isReversed ? -1 : 1, 1);
+        _spriteRenderer.flipY = true;
         _rigidbody.gravityScale *= -1;
 
-        _groundCheckBoxSize.y *= -1;
         _groundCheckCastDistance *= -1;
     }
 
@@ -169,32 +181,23 @@ public class CharacterMovement : MonoBehaviour
         return Physics2D.BoxCast(transform.position, _groundCheckBoxSize, 0, -transform.up, _groundCheckCastDistance, layer);
     }
 
-    public bool IsOnGround()
+    private bool IsOnGround()
     {
         return IsOnSurface(_groundLayer);
     }
 
-    public bool IsOnIce()
+    private bool IsOnIce()
     {
         return IsOnSurface(_iceLayer);
+    }
+    private bool IsOnSwamp()
+    {
+        return IsOnSurface(_swampLayer);
     }
 
     public bool IsOnGoal()
     {
         return IsOnSurface(_goalLayer);
-    }
-
-    public bool IsOnSwamp()
-    {
-        return IsOnSurface(_swampLayer);
-    }
-
-    private void InitLayer()
-    {
-        IsOnGround();
-        IsOnIce();
-        IsOnGoal();
-        IsOnSwamp();
     }
 
     #endregion IsOnLayer() >>>>

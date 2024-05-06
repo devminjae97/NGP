@@ -443,6 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1fc155fe4b165842b0e8412cfc79b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _activateOnPhaseStart: 0
   _breakTime: 500
   _respawnTime: 2000
 --- !u!61 &519760721
@@ -614,6 +615,7 @@ GameObject:
   - component: {fileID: 632485102}
   - component: {fileID: 632485103}
   - component: {fileID: 632485104}
+  - component: {fileID: 632485105}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -810,6 +812,27 @@ MonoBehaviour:
   _swampLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!95 &632485105
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632485098}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bfdc65e9f3c0be14db0b20638ffb885b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &692986980
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,6 +1005,7 @@ GameObject:
   - component: {fileID: 1036503103}
   - component: {fileID: 1036503102}
   - component: {fileID: 1036503101}
+  - component: {fileID: 1036503107}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -1178,6 +1202,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1036503107
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036503100}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bfdc65e9f3c0be14db0b20638ffb885b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1054883215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,6 +1365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c2463f7cc398a4cbd3cb9b2d1a6a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _activateOnPhaseStart: 0
   _increasedFriction: 100
 --- !u!1 &1066863310
 GameObject:
@@ -1562,6 +1608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ab19ed00217fb4d9de71e39e66e319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _activateOnPhaseStart: 0
   _speed: 5
   _minX: 0
   _maxX: 0
@@ -1602,6 +1649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c1b6ad2827a2b42b5881bb0e73fcc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _activateOnPhaseStart: 0
 --- !u!61 &1195099622
 BoxCollider2D:
   m_ObjectHideFlags: 0

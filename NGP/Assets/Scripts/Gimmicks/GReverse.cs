@@ -26,7 +26,7 @@ public class GReverse : GimmickBase
     {
         if (collision.CompareTag("Player"))
         {
-            if(collision.transform.TryGetComponent<CharacterMovement>(out CharacterMovement character))
+            if(collision.transform.TryGetComponent<CharacterMovement>(out var character))
             {
                 character.Reverse();
                 gameObject.SetActive(false);

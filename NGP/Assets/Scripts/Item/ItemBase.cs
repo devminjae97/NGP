@@ -50,7 +50,7 @@ public class ItemBase : MonoBehaviour
 
     public int UID => _uid;
 
-    private static int _generatedGimmicksCount = 0;
+    private static int _generatedItemCount = 0;
 
     private static int GetNewItemUID()
     {
@@ -88,5 +88,4 @@ public class ItemBase : MonoBehaviour
     }
 
     #endregion Unity ####
-}
 }

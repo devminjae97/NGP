@@ -22,9 +22,10 @@ public class Swamp : GimmickBase
     {
         if (collision.CompareTag("Player"))
         {
-            Rigidbody2D playerRB = collision.GetComponent<Rigidbody2D>();
-
-            playerRB.drag += _increasedFriction;
+            if (collision.TryGetComponent<Rigidbody2D>(out var rigidbody))
+            {
+               rigidbody.drag += _increasedFriction;
+            }
         }
     }
 
@@ -32,9 +33,10 @@ public class Swamp : GimmickBase
     {
         if (collision.CompareTag("Player"))
         {
-            Rigidbody2D playerRB = collision.GetComponent<Rigidbody2D>();
-
-            playerRB.drag = _normalFriction;
+            if (collision.TryGetComponent<Rigidbody2D>(out var rigidbody))
+            {
+                rigidbody.drag = _normalFriction;
+            }
         }
     }
 }
