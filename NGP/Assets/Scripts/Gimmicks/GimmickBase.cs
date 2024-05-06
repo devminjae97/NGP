@@ -45,16 +45,6 @@ public abstract class GimmickBase : MonoBehaviour
         IsActivated = false;
     }
     
-    public virtual void Pause()
-    {
-        IsPaused = true;
-    }
-
-    public virtual void Resume()
-    {
-        IsPaused = false;
-    }
-    
     public virtual void Reset()
     {
         Deactivate();
