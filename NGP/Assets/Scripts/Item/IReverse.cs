@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GReverse : GimmickBase
+public class IReverse : ItemBase
 {
     private Vector2 _initPos;
 

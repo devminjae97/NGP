@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Swamp : GimmickBase
+public class GSwamp : GimmickBase
 {
     [SerializeField] protected float _increasedFriction = 100f;
     private float _normalFriction = 1f;

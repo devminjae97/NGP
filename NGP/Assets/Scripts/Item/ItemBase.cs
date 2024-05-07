@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class ItemBase : MonoBehaviour
 {
+
+    #region Serialize Field >>>>
+
+    [SerializeField] private bool _activateOnPhaseStart = false;
+    public bool ActivateOnPhaseStart => _activateOnPhaseStart;
+
+    #endregion
+
     private bool _isActivated = false;
     public bool IsActivated
     {
@@ -44,25 +52,10 @@ public class ItemBase : MonoBehaviour
         Reset();
     }
 
-    #region ID >>>>
-
-    protected int _uid = -1;
-
-    public int UID => _uid;
-
-    private static int _generatedItemCount = 0;
-
-    private static int GetNewItemUID()
-    {
-        return ++_generatedItemCount;
-    }
-
-    #endregion ID >>>>
-
 
     #region Delegates >>>>
 
-    public delegate void OnStateChangedDelegate(GimmickBase gimmick, bool inIsActivated);
+    public delegate void OnStateChangedDelegate(ItemBase item, bool inIsActivated);
 
     public OnStateChangedDelegate OnStateChanged;
     //protected OnStateChangedDelegate _onStateChanged;
@@ -75,11 +68,7 @@ public class ItemBase : MonoBehaviour
 
     private void Awake()
     {
-        _uid = GetNewItemUID();
         Initialize();
-
-        // Test
-        Debug.Log($"[{this.name}] uid: {_uid}");
     }
 
     protected void OnDestroy()
