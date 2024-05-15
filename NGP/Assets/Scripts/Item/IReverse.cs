@@ -11,6 +11,12 @@ public class IReverse : ItemBase
         base.Activate();
     }
 
+    public override void Deactivate()
+    {
+        base.Deactivate();
+        gameObject.SetActive(false);
+    }
+
     public override void Reset()
     {
         base.Reset();
@@ -29,7 +35,7 @@ public class IReverse : ItemBase
             if(collision.transform.TryGetComponent<CharacterMovement>(out var character))
             {
                 character.Reverse();
-                gameObject.SetActive(false);
+                Deactivate();
             }
         }
     }

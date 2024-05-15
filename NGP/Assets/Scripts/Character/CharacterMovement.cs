@@ -128,13 +128,14 @@ public class CharacterMovement : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
+        Vector2 direction = _isReversed ? Vector2.down : Vector2.up;
         if ((IsOnGround() || IsOnIce()) && value.isPressed && _isControllable)
         {
-            _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            _rigidbody.AddForce(direction * _jumpForce, ForceMode2D.Impulse);
         }
         else if (IsOnSwamp() && value.isPressed && _isControllable)
         {
-            _rigidbody.AddForce(Vector2.up * _swampJumpForce, ForceMode2D.Impulse);
+            _rigidbody.AddForce(direction * _swampJumpForce, ForceMode2D.Impulse);
         }
     }
 

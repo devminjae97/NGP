@@ -6,8 +6,6 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class ItemManager : Singleton<ItemManager>
 {
-    //@TODO, GameInstanceSubsystem 같은 느낌의 무언가가 필요한가?
-
     private List<ItemBase> _items;
 
     public void RegisterItem(ItemBase item)

@@ -62,6 +62,7 @@ public class GMovingBlock : GimmickBase
             _maxY = _minY + _movingDistanceY;
         }
     }
+
     private void MovingX()
     {
         if (_movingRight)
