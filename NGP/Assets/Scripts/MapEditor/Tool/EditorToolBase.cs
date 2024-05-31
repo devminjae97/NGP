@@ -47,7 +47,6 @@ public abstract class EditorToolBase : MonoBehaviour
         dir = new Vector3( 0, 0, 1 );
         dist = 200;
         hit = Physics2D.Raycast( origin, dir, dist );
-        Debug.DrawRay( origin, dir * 200, UnityEngine.Color.red, 10 );
 
         if (hit) return (true, hit);
         return (false, hit);

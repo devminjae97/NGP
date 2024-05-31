@@ -215,12 +215,10 @@ public class EditorController : MonoBehaviour
             }
             else if (Input.GetMouseButton( 0 ))
             {
-                if (_editJob == null) return;
-                _tool.Edit( _selectCursor.transform.position, _editJob );
+                _tool.Edit( Camera.main.ScreenToWorldPoint( Input.mousePosition ), _editJob );
             }
             else if (Input.GetMouseButtonUp( 0 ))
             {
-                if (_editJob == null) return;
                 EditJobManager.Instance.PushJob( _editJob );
                 Destroy( _editJob );
             }

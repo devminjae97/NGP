@@ -79,6 +79,7 @@ public class EditorGround : EditorToolBase
         int num = Mathf.RoundToInt( (_size / _tileSize - (isEven ? 0 : 1)) / 2 );
         Vector3Int pos = _tilemap.WorldToCell( mousePosition );
         Vector2Int curPos;
+        TileBase curTile;
 
         for (int i = pos.x - num; i <= pos.x + num + (isEven ? -1 : 0); i++)
         {
@@ -91,9 +92,18 @@ public class EditorGround : EditorToolBase
                 }
 
                 curPos = new Vector2Int( i, j );
-                TileBase curTile = _tilemap.GetTile( (Vector3Int)curPos );
-                if (curTile != currentTile)
+
+                // 양성인 TODO: 대각선 그려지지 않는 것
+                Vector3 origin, dir;
+                origin = _tilemap.CellToWorld( new Vector3Int( i, j, -10 ) ) + new Vector3( _tileHalfSize, _tileHalfSize, 0 );
+                dir = new Vector3( 0, 0, 1 );
+                Debug.DrawRay(origin, dir * 100, Color.red, 3);
+                //
+
+                curTile = _tilemap.GetTile( new Vector3Int(curPos.x, curPos.y, 0) );
+                if (curTile == null)
                 {
+                    Debug.Log( 0 );
                     (editJob as EditJobDrawingTile).TileByPos.Add( curPos, (curTile, currentTile) );
                     _tilemap.SetTile( new Vector3Int( i, j, 0 ), currentTile );
                 }
