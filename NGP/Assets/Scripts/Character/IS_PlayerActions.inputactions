@@ -92,6 +92,116 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "EditorController",
+            "id": "027f841d-65d4-4afe-a2b2-e463396d0a21",
+            "actions": [
+                {
+                    "name": "LeftMouseButtonDown",
+                    "type": "Button",
+                    "id": "f606ff04-5b15-49ab-8c2b-4dfe19293de9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LeftMouseButton",
+                    "type": "Button",
+                    "id": "1aa29659-1f0e-4c2b-adce-3cf56a752da9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "c5407010-a3c1-4ae6-9c11-7a7cc63c0d26",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "DragAndMove",
+                    "type": "Value",
+                    "id": "e7297159-067f-44eb-a12c-1d507bf09ccb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a8b1be41-447c-468d-a332-06c2147b048b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "LeftMouseButtonDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8ff9c7da-f537-4d7c-8088-e2b183bb5aa8",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftMouseButtonDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "49246ca5-5f76-46ba-a80c-74a636fbf333",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "LeftMouseButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b88ab2c8-5cc8-43d8-ba95-9c032a54aaa0",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6a20e38d-86dd-4b63-b189-68266318610f",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragAndMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81b24a3b-10f7-4862-9d25-4f0316153ad7",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragAndMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

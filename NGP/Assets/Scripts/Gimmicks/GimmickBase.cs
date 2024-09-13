@@ -17,6 +17,9 @@ public abstract class GimmickBase : MonoBehaviour
     
     /** CAUTION: DO NOT use this variable directly. */
     private bool _isActivated = false;
+
+    //public ETileType tileType;
+
     public bool IsActivated 
     {
         get => _isActivated;

@@ -1,0 +1,2677 @@
+fileFormatVersion: 2
+guid: 9dd1ea1e14e26274e88a7a96e5b73d60
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8754001616120485972
+    second: HalfTiles_0
+  - first:
+      213: 2882485109526720259
+    second: HalfTiles_1
+  - first:
+      213: 4905987112452867759
+    second: HalfTiles_2
+  - first:
+      213: -7904714196234879046
+    second: HalfTiles_3
+  - first:
+      213: -302601817441655701
+    second: HalfTiles_4
+  - first:
+      213: -7828134633892127331
+    second: HalfTiles_5
+  - first:
+      213: 2913821336109661919
+    second: HalfTiles_6
+  - first:
+      213: 4201129278967714935
+    second: HalfTiles_7
+  - first:
+      213: 7104296393958472129
+    second: HalfTiles_8
+  - first:
+      213: 6391605910589373598
+    second: HalfTiles_9
+  - first:
+      213: 1765421983219113156
+    second: HalfTiles_10
+  - first:
+      213: -5716650398992881531
+    second: HalfTiles_11
+  - first:
+      213: 1634145198820498435
+    second: HalfTiles_12
+  - first:
+      213: -5982465477736619155
+    second: HalfTiles_13
+  - first:
+      213: -2261246439970429034
+    second: HalfTiles_14
+  - first:
+      213: -526319949163367804
+    second: HalfTiles_15
+  - first:
+      213: -3938727211462366612
+    second: HalfTiles_16
+  - first:
+      213: 4526224622440184436
+    second: HalfTiles_17
+  - first:
+      213: -1690296961353555801
+    second: HalfTiles_18
+  - first:
+      213: 5528932074476506779
+    second: HalfTiles_19
+  - first:
+      213: -8697302438037686079
+    second: HalfTiles_20
+  - first:
+      213: 1759765911765878094
+    second: HalfTiles_21
+  - first:
+      213: 6609469764507163070
+    second: HalfTiles_22
+  - first:
+      213: -180580653794649500
+    second: HalfTiles_23
+  - first:
+      213: -5058528022553669801
+    second: HalfTiles_24
+  - first:
+      213: 6458326277514006244
+    second: HalfTiles_25
+  - first:
+      213: 5791533829517289420
+    second: HalfTiles_26
+  - first:
+      213: -508799723316401735
+    second: HalfTiles_27
+  - first:
+      213: -4393491581122114788
+    second: HalfTiles_28
+  - first:
+      213: 2054484842734133792
+    second: HalfTiles_29
+  - first:
+      213: -2147324993777395181
+    second: HalfTiles_30
+  - first:
+      213: 5946633090181065537
+    second: HalfTiles_31
+  - first:
+      213: 2945537479335525674
+    second: HalfTiles_32
+  - first:
+      213: -8197289792010778003
+    second: HalfTiles_33
+  - first:
+      213: 7627355474367934309
+    second: HalfTiles_34
+  - first:
+      213: 2679912059386605748
+    second: HalfTiles_35
+  - first:
+      213: 3073119655969256319
+    second: HalfTiles_36
+  - first:
+      213: -5899543586573532071
+    second: HalfTiles_37
+  - first:
+      213: -8076284743015634863
+    second: HalfTiles_38
+  - first:
+      213: 5825987718643938056
+    second: HalfTiles_39
+  - first:
+      213: -5487474691108021402
+    second: HalfTiles_40
+  - first:
+      213: 6724820426973481495
+    second: HalfTiles_41
+  - first:
+      213: -5489069772782449263
+    second: HalfTiles_42
+  - first:
+      213: 3900653953282439869
+    second: HalfTiles_43
+  - first:
+      213: -398220287595400604
+    second: HalfTiles_44
+  - first:
+      213: 4006123581600548832
+    second: HalfTiles_45
+  - first:
+      213: 5560468306432852683
+    second: HalfTiles_46
+  - first:
+      213: -8517290840281345555
+    second: HalfTiles_47
+  - first:
+      213: -3273121953418622149
+    second: HalfTiles_48
+  - first:
+      213: 4016267311724692498
+    second: HalfTiles_49
+  - first:
+      213: 4875669113867857845
+    second: HalfTiles_50
+  - first:
+      213: -2083461544715548693
+    second: HalfTiles_51
+  - first:
+      213: -1213479298061977260
+    second: HalfTiles_52
+  - first:
+      213: 8188945624300072366
+    second: HalfTiles_53
+  - first:
+      213: -831143199456036452
+    second: HalfTiles_54
+  - first:
+      213: 116424210107585541
+    second: HalfTiles_55
+  - first:
+      213: -7883519759017458030
+    second: HalfTiles_56
+  - first:
+      213: 2102434400682226571
+    second: HalfTiles_57
+  - first:
+      213: 110345613034531377
+    second: HalfTiles_58
+  - first:
+      213: -5949487747880904783
+    second: HalfTiles_59
+  - first:
+      213: 7526993184824379311
+    second: HalfTiles_60
+  - first:
+      213: -3130682540603987632
+    second: HalfTiles_61
+  - first:
+      213: -699439460137718809
+    second: HalfTiles_62
+  - first:
+      213: -6307329884718126904
+    second: HalfTiles_63
+  - first:
+      213: 6859783960016214337
+    second: HalfTiles_64
+  - first:
+      213: 6402300017982398605
+    second: HalfTiles_65
+  - first:
+      213: 7265012330174776425
+    second: HalfTiles_66
+  - first:
+      213: -4460444597695860252
+    second: HalfTiles_67
+  - first:
+      213: 6458035299585151124
+    second: HalfTiles_68
+  - first:
+      213: 7638577272130860508
+    second: HalfTiles_69
+  - first:
+      213: 652931308273725241
+    second: HalfTiles_70
+  - first:
+      213: -2593732980287052109
+    second: HalfTiles_71
+  - first:
+      213: 297691812580534493
+    second: HalfTiles_72
+  - first:
+      213: -3876473933917186991
+    second: HalfTiles_73
+  - first:
+      213: -4001654112419001832
+    second: HalfTiles_74
+  - first:
+      213: -5064639554440602138
+    second: HalfTiles_75
+  - first:
+      213: 4424635645774392147
+    second: HalfTiles_76
+  - first:
+      213: -5655221396889622767
+    second: HalfTiles_77
+  - first:
+      213: -8922423294637618526
+    second: HalfTiles_78
+  - first:
+      213: -2109280593701240475
+    second: HalfTiles_79
+  - first:
+      213: -1484235323403067346
+    second: HalfTiles_80
+  - first:
+      213: 8346223697987256905
+    second: HalfTiles_81
+  - first:
+      213: 1491453035604764772
+    second: HalfTiles_82
+  - first:
+      213: 5678724865798174294
+    second: HalfTiles_83
+  - first:
+      213: 32928456097953698
+    second: HalfTiles_84
+  - first:
+      213: 5099140368239818551
+    second: HalfTiles_85
+  - first:
+      213: -5529829032880791956
+    second: HalfTiles_86
+  - first:
+      213: -9136943518706502941
+    second: HalfTiles_87
+  - first:
+      213: -9191176574789426343
+    second: HalfTiles_88
+  - first:
+      213: -8737707994972336964
+    second: HalfTiles_89
+  - first:
+      213: 6305043082601957095
+    second: HalfTiles_90
+  - first:
+      213: -467002959565053526
+    second: HalfTiles_91
+  - first:
+      213: -6935185323039934065
+    second: HalfTiles_92
+  - first:
+      213: 856242920485568933
+    second: HalfTiles_93
+  - first:
+      213: -6570888854597709852
+    second: HalfTiles_94
+  - first:
+      213: -4507536296192618799
+    second: HalfTiles_95
+  - first:
+      213: -6813698556384721131
+    second: HalfTiles_96
+  - first:
+      213: -3221880521753848239
+    second: HalfTiles_97
+  - first:
+      213: 3544079186730390899
+    second: HalfTiles_98
+  - first:
+      213: -4445558358554602874
+    second: HalfTiles_99
+  - first:
+      213: 2269542641171029712
+    second: HalfTiles_100
+  - first:
+      213: -8105664690139417152
+    second: HalfTiles_101
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HalfTiles_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4589e04d6167c7970800000000000000
+      internalID: 8754001616120485972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f61bf5fe4a00820800000000000000
+      internalID: 2882485109526720259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa6c5662941951440800000000000000
+      internalID: 4905987112452867759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abfbe6ac150dc4290800000000000000
+      internalID: -7904714196234879046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64a0031041fccbf0800000000000000
+      internalID: -302601817441655701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d5de49601ec5390800000000000000
+      internalID: -7828134633892127331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_6
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde35cd2119ff6820800000000000000
+      internalID: 2913821336109661919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_7
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7741d5812d86d4a30800000000000000
+      internalID: 4201129278967714935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c9bbfc1ee7879260800000000000000
+      internalID: 7104296393958472129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_9
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9c77f426bb83b850800000000000000
+      internalID: 6391605910589373598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ccd07ca0f9008810800000000000000
+      internalID: 1765421983219113156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_11
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5882fee00c06aa0b0800000000000000
+      internalID: -5716650398992881531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c1b177666ada610800000000000000
+      internalID: 1634145198820498435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_13
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63a87e28530afca0800000000000000
+      internalID: -5982465477736619155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_14
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69722fbe7507e90e0800000000000000
+      internalID: -2261246439970429034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_15
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4827ae77bc222b8f0800000000000000
+      internalID: -526319949163367804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6aee9d2874d659c0800000000000000
+      internalID: -3938727211462366612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_17
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a7c2a205160de30800000000000000
+      internalID: 4526224622440184436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a069958edbda88e0800000000000000
+      internalID: -1690296961353555801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_19
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e8f6e9d66babc40800000000000000
+      internalID: 5528932074476506779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8ff9c4389fc4780800000000000000
+      internalID: -8697302438037686079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_21
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4585aae5c1fb6810800000000000000
+      internalID: 1759765911765878094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9522b7bbd89bb50800000000000000
+      internalID: 6609469764507163070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_23
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a13452ad27e7df0800000000000000
+      internalID: -180580653794649500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_24
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75f4451909f7cc9b0800000000000000
+      internalID: -5058528022553669801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_25
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee0bce188590a950800000000000000
+      internalID: 6458326277514006244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_26
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc729054559af5050800000000000000
+      internalID: 5791533829517289420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_27
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9a8ede85160f8f0800000000000000
+      internalID: -508799723316401735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1b0c874fae2703c0800000000000000
+      internalID: -4393491581122114788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_29
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022a79f441ff28c10800000000000000
+      internalID: 2054484842734133792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_30
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a94909b4b2332e0800000000000000
+      internalID: -2147324993777395181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_31
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14b63d5f94fa68250800000000000000
+      internalID: 5946633090181065537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_32
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2db4683bb6a0e820800000000000000
+      internalID: 2945537479335525674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_33
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6a03428d506d3e80800000000000000
+      internalID: -8197289792010778003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_34
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56fe459746fc9d960800000000000000
+      internalID: 7627355474367934309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_35
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b03609b1d5f03520800000000000000
+      internalID: 2679912059386605748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_36
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7371568b0ae5aa20800000000000000
+      internalID: 3073119655969256319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_37
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954c9597d5c902ea0800000000000000
+      internalID: -5899543586573532071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_38
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15865a3f0d54bef80800000000000000
+      internalID: -8076284743015634863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_39
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8037f8376f01ad050800000000000000
+      internalID: 5825987718643938056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b5f82a7d298d3b0800000000000000
+      internalID: -5487474691108021402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_41
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a8b087c8c535d50800000000000000
+      internalID: 6724820426973481495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_42
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19dc7fdbf18e2d3b0800000000000000
+      internalID: -5489069772782449263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_43
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dba7f1d9a18e12630800000000000000
+      internalID: 3900653953282439869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_44
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 462b58f12cc397af0800000000000000
+      internalID: -398220287595400604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_45
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e7cd9f0c2c989730800000000000000
+      internalID: 4006123581600548832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_46
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc28fbdc670ca2d40800000000000000
+      internalID: 5560468306432852683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_47
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de197587b118cc980800000000000000
+      internalID: -8517290840281345555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3b43f3dce88392d0800000000000000
+      internalID: -3273121953418622149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_49
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2140d5647d5acb730800000000000000
+      internalID: 4016267311724692498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_50
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bfef660a3bd9a340800000000000000
+      internalID: 4875669113867857845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_51
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be70b0483ce0613e0800000000000000
+      internalID: -2083461544715548693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_52
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 459b9b8f10bd82fe0800000000000000
+      internalID: -1213479298061977260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_53
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead256d88aaf4a170800000000000000
+      internalID: 8188945624300072366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_54
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99f0f6e9af2774f0800000000000000
+      internalID: -831143199456036452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_55
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504d7b6c33f9d9100800000000000000
+      internalID: 116424210107585541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 296cdff3c8c189290800000000000000
+      internalID: -7883519759017458030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_57
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b83b930c2f85d2d10800000000000000
+      internalID: 2102434400682226571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_58
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13a227b10c6088100800000000000000
+      internalID: 110345613034531377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_59
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b715004a6c2f6da0800000000000000
+      internalID: -5949487747880904783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_60
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa74e300c60457860800000000000000
+      internalID: 7526993184824379311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_61
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05928cef0d49d84d0800000000000000
+      internalID: -3130682540603987632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_62
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eba99c44871b46f0800000000000000
+      internalID: -699439460137718809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_63
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8ab2433ecd778a0800000000000000
+      internalID: -6307329884718126904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_64
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14950bcba29d23f50800000000000000
+      internalID: 6859783960016214337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_65
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80615d02f989d850800000000000000
+      internalID: 6402300017982398605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96486ecf83282d460800000000000000
+      internalID: 7265012330174776425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_67
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e1370655415912c0800000000000000
+      internalID: -4460444597695860252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_68
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 490d4ba83ec8f9950800000000000000
+      internalID: 6458035299585151124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_69
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd57bbede8da10a60800000000000000
+      internalID: 7638577272130860508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_70
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93fe264c09daf0900800000000000000
+      internalID: 652931308273725241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_71
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b666cbb895310cd0800000000000000
+      internalID: -2593732980287052109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_72
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd8a765502d912400800000000000000
+      internalID: 297691812580534493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_73
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1541ecbde7ff33ac0800000000000000
+      internalID: -3876473933917186991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_74
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ac84359c44778c0800000000000000
+      internalID: -4001654112419001832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_75
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eddc2aa829c6b9b0800000000000000
+      internalID: -5064639554440602138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_76
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35be9e65da6776d30800000000000000
+      internalID: 4424635645774392147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_77
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117a4382a1e9481b0800000000000000
+      internalID: -5655221396889622767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_78
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa447b594f2d2480800000000000000
+      internalID: -8922423294637618526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_79
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56100d8b9745ab2e0800000000000000
+      internalID: -2109280593701240475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_80
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e20297156dfe66be0800000000000000
+      internalID: -1484235323403067346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_81
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9424a7eab3eb3d370800000000000000
+      internalID: 8346223697987256905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_82
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468666242a4b2b410800000000000000
+      internalID: 1491453035604764772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_83
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656f313ad22eece40800000000000000
+      internalID: 5678724865798174294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_84
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a778b0a14cf47000800000000000000
+      internalID: 32928456097953698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_85
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737f9c40629c3c640800000000000000
+      internalID: 5099140368239818551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_86
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6e9f7afac91243b0800000000000000
+      internalID: -5529829032880791956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_87
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e2f0b2874e033180800000000000000
+      internalID: -9136943518706502941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_88
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 953e8c72a91627080800000000000000
+      internalID: -9191176574789426343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_89
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc45987fdc6db680800000000000000
+      internalID: -8737707994972336964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e606003743008750800000000000000
+      internalID: 6305043082601957095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_91
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa1a116584fd489f0800000000000000
+      internalID: -467002959565053526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_92
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f89b3b061b541cf90800000000000000
+      internalID: -6935185323039934065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_93
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a14cfc466cf1eb00800000000000000
+      internalID: 856242920485568933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_94
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef412b96638fc4a0800000000000000
+      internalID: -6570888854597709852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_95
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1de424dde930271c0800000000000000
+      internalID: -4507536296192618799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_96
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 517c8147341e071a0800000000000000
+      internalID: -6813698556384721131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_97
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1569c185cb49943d0800000000000000
+      internalID: -3221880521753848239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_98
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3759be43e391f2130800000000000000
+      internalID: 3544079186730390899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_99
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 682951af9343e42c0800000000000000
+      internalID: -4445558358554602874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_100
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ded991f1090f7f10800000000000000
+      internalID: 2269542641171029712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HalfTiles_101
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c530d3f8e4e28f80800000000000000
+      internalID: -8105664690139417152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      HalfTiles_0: 8754001616120485972
+      HalfTiles_1: 2882485109526720259
+      HalfTiles_10: 1765421983219113156
+      HalfTiles_100: 2269542641171029712
+      HalfTiles_101: -8105664690139417152
+      HalfTiles_11: -5716650398992881531
+      HalfTiles_12: 1634145198820498435
+      HalfTiles_13: -5982465477736619155
+      HalfTiles_14: -2261246439970429034
+      HalfTiles_15: -526319949163367804
+      HalfTiles_16: -3938727211462366612
+      HalfTiles_17: 4526224622440184436
+      HalfTiles_18: -1690296961353555801
+      HalfTiles_19: 5528932074476506779
+      HalfTiles_2: 4905987112452867759
+      HalfTiles_20: -8697302438037686079
+      HalfTiles_21: 1759765911765878094
+      HalfTiles_22: 6609469764507163070
+      HalfTiles_23: -180580653794649500
+      HalfTiles_24: -5058528022553669801
+      HalfTiles_25: 6458326277514006244
+      HalfTiles_26: 5791533829517289420
+      HalfTiles_27: -508799723316401735
+      HalfTiles_28: -4393491581122114788
+      HalfTiles_29: 2054484842734133792
+      HalfTiles_3: -7904714196234879046
+      HalfTiles_30: -2147324993777395181
+      HalfTiles_31: 5946633090181065537
+      HalfTiles_32: 2945537479335525674
+      HalfTiles_33: -8197289792010778003
+      HalfTiles_34: 7627355474367934309
+      HalfTiles_35: 2679912059386605748
+      HalfTiles_36: 3073119655969256319
+      HalfTiles_37: -5899543586573532071
+      HalfTiles_38: -8076284743015634863
+      HalfTiles_39: 5825987718643938056
+      HalfTiles_4: -302601817441655701
+      HalfTiles_40: -5487474691108021402
+      HalfTiles_41: 6724820426973481495
+      HalfTiles_42: -5489069772782449263
+      HalfTiles_43: 3900653953282439869
+      HalfTiles_44: -398220287595400604
+      HalfTiles_45: 4006123581600548832
+      HalfTiles_46: 5560468306432852683
+      HalfTiles_47: -8517290840281345555
+      HalfTiles_48: -3273121953418622149
+      HalfTiles_49: 4016267311724692498
+      HalfTiles_5: -7828134633892127331
+      HalfTiles_50: 4875669113867857845
+      HalfTiles_51: -2083461544715548693
+      HalfTiles_52: -1213479298061977260
+      HalfTiles_53: 8188945624300072366
+      HalfTiles_54: -831143199456036452
+      HalfTiles_55: 116424210107585541
+      HalfTiles_56: -7883519759017458030
+      HalfTiles_57: 2102434400682226571
+      HalfTiles_58: 110345613034531377
+      HalfTiles_59: -5949487747880904783
+      HalfTiles_6: 2913821336109661919
+      HalfTiles_60: 7526993184824379311
+      HalfTiles_61: -3130682540603987632
+      HalfTiles_62: -699439460137718809
+      HalfTiles_63: -6307329884718126904
+      HalfTiles_64: 6859783960016214337
+      HalfTiles_65: 6402300017982398605
+      HalfTiles_66: 7265012330174776425
+      HalfTiles_67: -4460444597695860252
+      HalfTiles_68: 6458035299585151124
+      HalfTiles_69: 7638577272130860508
+      HalfTiles_7: 4201129278967714935
+      HalfTiles_70: 652931308273725241
+      HalfTiles_71: -2593732980287052109
+      HalfTiles_72: 297691812580534493
+      HalfTiles_73: -3876473933917186991
+      HalfTiles_74: -4001654112419001832
+      HalfTiles_75: -5064639554440602138
+      HalfTiles_76: 4424635645774392147
+      HalfTiles_77: -5655221396889622767
+      HalfTiles_78: -8922423294637618526
+      HalfTiles_79: -2109280593701240475
+      HalfTiles_8: 7104296393958472129
+      HalfTiles_80: -1484235323403067346
+      HalfTiles_81: 8346223697987256905
+      HalfTiles_82: 1491453035604764772
+      HalfTiles_83: 5678724865798174294
+      HalfTiles_84: 32928456097953698
+      HalfTiles_85: 5099140368239818551
+      HalfTiles_86: -5529829032880791956
+      HalfTiles_87: -9136943518706502941
+      HalfTiles_88: -9191176574789426343
+      HalfTiles_89: -8737707994972336964
+      HalfTiles_9: 6391605910589373598
+      HalfTiles_90: 6305043082601957095
+      HalfTiles_91: -467002959565053526
+      HalfTiles_92: -6935185323039934065
+      HalfTiles_93: 856242920485568933
+      HalfTiles_94: -6570888854597709852
+      HalfTiles_95: -4507536296192618799
+      HalfTiles_96: -6813698556384721131
+      HalfTiles_97: -3221880521753848239
+      HalfTiles_98: 3544079186730390899
+      HalfTiles_99: -4445558358554602874
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
